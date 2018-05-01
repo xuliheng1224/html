@@ -110,3 +110,35 @@ filters:{
 //     console.log(this.$refs)；
 //     this.$refs.p3.className = "p33333"；
 // }
+
+//6.slot标签是一个占位符
+
+<div>
+    <header>这是头部</header>
+    <slot name="content"></slot>
+</div>
+
+/* <v-header>
+    <div slot="content">
+        这是内容啊
+    </div>
+</v-header> */
+
+//7.component 购物车标签（切换标签）
+
+// <button @click="choose='detail'">切换到详情页</button>
+// <button @click="choose='dingdan'">切换到订单页</button>
+// <component :is="choose"></component>
+
+import detail from './detail';
+import dingdan from './dingdan';
+
+// data () {
+//     return {
+//       choose:'detail'
+//     }
+// }    
+
+components:{
+    detail,dingdan
+}

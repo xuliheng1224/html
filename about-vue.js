@@ -142,3 +142,52 @@ import dingdan from './dingdan';
 components:{
     detail,dingdan
 }
+
+//8.关于vue的props 子组件获取父组件的信息；
+
+//父组件
+<child parentmsg="fromfa"></child>
+import child from './child';
+export default{
+    components:{
+        child
+    }
+}
+
+//子组件
+/* <div>{{info}}</div>
+export default {
+    props:['parentmsg'],
+    data(){
+        return{
+            info:this.parentmsg
+        }
+    }
+} */
+
+
+//9.vue的$emit  子组件向父组件推送信息
+
+//子组件
+/* <div @click='send'>向父组件推送信息</div>
+
+methods:{
+    send(){
+        this.$emit('toParent','这是从子组件传过来的')
+    }
+}     
+*/
+
+//父组件
+
+/* <child @toparent='accept'></child>
+
+methods:{
+    accept(data){
+        console.log(data)
+    }
+} */
+
+
+
+

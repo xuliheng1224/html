@@ -12,6 +12,11 @@
         这是内容啊
       </div>
     </v-header>
+    
+
+      <child parentmsg="fromfa" @toParent='accept'></child>
+   
+      
     <button @click="choose='detail'">切换到详情页</button>
     <button @click="choose='dingdan'">切换到订单页</button>
     <component :is="choose"></component>
@@ -22,28 +27,35 @@
 import vHeader from './header';
 import detail from './detail';
 import dingdan from './dingdan';
+import child from './child';
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
+      // parentmsg:'fromfa',
       choose:'detail',
       msg: 'Welcome to Your Vue.js App',
       val: 24,
       msg:"i love you",
-      number:8
-
+      number:8,
+      titel:'sdsdsd'
     }
 
   },
   components:{
     vHeader,
     detail,
-    dingdan
+    dingdan,
+    child
   },
   methods:{
     remove(){
       this.number = 0;
-    }
+    },
+    accept(data){
+      console.log(data)
+    }    
   },
   filters:{
     add(val){

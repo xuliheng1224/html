@@ -194,7 +194,7 @@ methods:{
 // `Vue.$nextTick(callback)`，当dom发生变化，更新后执行的回调。
 
 // <ul id="demo">
-//     <li v-for="item in list">{{item}}</div>
+//     <li v-for="(index,item) in list" :key="index">{{item}}</div>
 // </ul>
  
 // new Vue({

@@ -1,5 +1,9 @@
 <template>
   <div class="hello">
+    <ul>
+      <li  v-for="(index,item) in list" :key="index" >{{item}}</li>
+    </ul>
+    <input type="button" value="点击增加list" @click='push'>
     <h1>{{ msg }}</h1>    
     <h2>{{val|add}}</h2>
     <input type="text" v-focus style="border:2px solid #000;">
@@ -12,11 +16,7 @@
         这是内容啊
       </div>
     </v-header>
-    
-
-      <child parentmsg="fromfa" @toParent='accept'></child>
-   
-      
+    <child parentmsg="fromfa" @toParent='accept'></child>
     <button @click="choose='detail'">切换到详情页</button>
     <button @click="choose='dingdan'">切换到订单页</button>
     <component :is="choose"></component>
@@ -28,7 +28,7 @@ import vHeader from './header';
 import detail from './detail';
 import dingdan from './dingdan';
 import child from './child';
-
+import Vue from 'vue'
 export default {
   name: 'HelloWorld',
   data () {
@@ -37,9 +37,9 @@ export default {
       choose:'detail',
       msg: 'Welcome to Your Vue.js App',
       val: 24,
-      msg:"i love you",
       number:8,
-      titel:'sdsdsd'
+      titel:'sdsdsd',
+      list:[1,2,3,4,5,6]
     }
 
   },
@@ -50,6 +50,15 @@ export default {
     child
   },
   methods:{
+    push(){
+      this.list.push(this.list.length+1)
+      Vue.nextTick(function(){
+          alert('数据已经更新')
+      });
+      this.$nextTick(function(){
+          alert('v-for渲染已经完成')
+      })
+    },
     remove(){
       this.number = 0;
     },
@@ -95,7 +104,6 @@ ul {
   padding: 0;
 }
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 a {

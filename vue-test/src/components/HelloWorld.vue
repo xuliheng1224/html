@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <input type="button" value="进去mine" @click='mine'>
     <ul>
       <li  v-for="(index,item) in list" :key="index" >{{item}}</li>
     </ul>
@@ -50,6 +51,16 @@ export default {
     child
   },
   methods:{
+    mine(){
+      //var id = Base64.encode('mine')
+      //console.log(id);
+      // this.$router.push({
+      //   path:"/mine",
+      //   query:{
+      //     id:id
+      //   }
+      // })
+    },
     push(){
       this.list.push(this.list.length+1)
       Vue.nextTick(function(){

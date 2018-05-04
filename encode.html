@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>encode</title>
+    <script src="https://cdn.bootcss.com/Base64/1.0.0/base64.min.js"></script>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+<script>
+    var b = new Base64();  
+        var str = b.encode("admin:admin");  
+        console.log("base64 encode:" + str);  
+　　　　　//解密
+        str = b.decode(str);  
+        console.log("base64 decode:" + str); 
+</script>
+</html>

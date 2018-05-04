@@ -188,13 +188,13 @@ methods:{
     }
 } */
 
-//关于vue的 $nextTick的用法
+//10.关于vue的 $nextTick的用法
 
 // `Vue.nextTick(callback)`，当数据发生变化，更新后执行回调。（全局）
 // `Vue.$nextTick(callback)`，当dom发生变化，更新后执行的回调。
 
 // <ul id="demo">
-//     <li v-for="item in list">{{item}}</div>
+//     <li v-for="(index,item) in list" :key="index">{{item}}</div>
 // </ul>
  
 // new Vue({
@@ -213,7 +213,7 @@ methods:{
 //             })
 //         }
 
-//关于vue路由的懒加载（按需引入）
+//11.关于vue路由的懒加载（按需引入）
 // 懒加载：
 
 // 　　　　也叫延迟加载，即在需要的时候进行加载，随用随载。
@@ -238,3 +238,12 @@ const router = new Router({
         ...mine
     ]
 })
+
+//12.vue传参加密；
+
+var b = new Base64();  
+//加密
+var id = b.encode('mine')
+
+//解密
+b.decode(id);

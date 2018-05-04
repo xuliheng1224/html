@@ -52,14 +52,15 @@ export default {
   },
   methods:{
     mine(){
-      //var id = Base64.encode('mine')
-      //console.log(id);
-      // this.$router.push({
-      //   path:"/mine",
-      //   query:{
-      //     id:id
-      //   }
-      // })
+      var b = new Base64();  
+      var id = b.encode('mine')
+      console.log(id);
+      this.$router.push({
+        path:"/mine",
+        query:{
+          id:id
+        }
+      })
     },
     push(){
       this.list.push(this.list.length+1)

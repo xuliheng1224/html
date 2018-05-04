@@ -24,7 +24,8 @@
             }
         },
         mounted(){
-            this.msg=this.$route.query.id
+            var b = new Base64()
+            this.msg=b.decode(this.$route.query.id)
         }
     }
 </script>

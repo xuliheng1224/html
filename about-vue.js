@@ -372,7 +372,10 @@ computed:{
 //存
 methods:{
     // add(){
-    //     this.$store.dispatch('add' , this.msg)
+        // if(this.msg){
+
+        //     this.$store.dispatch('add' , this.msg)
+        // }
         
     // },
     // modify(){

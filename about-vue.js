@@ -39,7 +39,7 @@ this.$route.params.id
 // 3.关于vue的请求 
 
 import axios from 'axios'
-Vue.prototype.$axios=axios;
+Vue.prototype.$http=axios;
 
 import VueResource from 'vue-resource'
 Vue.use(VueResource);
@@ -247,3 +247,136 @@ var id = b.encode('mine')
 
 //解密
 b.decode(id);
+
+//13.引入fastclick
+import FastClick from 'fastclick'
+//main.js
+FastClick.attach(document.body);
+
+//13.vue 的手势事件vueTouch
+
+// npm install vue-touch@next --save
+
+// iimport VueTouch from 'vue-touch';
+// Vue.use(VueTouch)
+
+/* <v-touch v-on:swipeleft='left'>左划</v-touch>
+<v-touch v-on:swiperight='right'>右划</v-touch> */
+
+//14.vuex 状态集的管理
+//  Vuex 依赖 Promise。如果你支持的浏览器并没有实现 Promise (比如 IE)，那么你可以使用一个 polyfill 的库，例如 es6-promise。
+
+//  npm install vuex --save
+//  npm install es6-promise --save 
+
+
+main.js
+import store from './components/store/store'
+new Vue({
+    el: '#app',
+    router,store,
+    components: { App },
+    template: '<App/>'
+  })
+
+Store.js
+import Vue from 'vue';
+import Vuex from 'vuex';
+import state from './state';
+import actions from './actions';
+import mutations from './mutations';
+import getters from './getters';
+Vue.use(Vuex);
+
+const store = new Vuex.Store({
+    state,
+    actions,
+    mutations,
+    getters
+})
+
+export default store;
+
+State.js
+const state = {
+    getInfo:{
+        name:'xuliheng',
+        age:24
+    },
+    size:'big',
+    list:[
+        {text:"111"},
+        {text:"222"}
+    ]
+}
+
+export default state;
+
+
+getters.js
+
+const getters = {
+    getInfo(state){
+        return state.getInfo
+    },
+    list(state){
+        return state.list
+    },
+    size(state){
+        return state.size;
+    }
+
+}
+
+export default getters;
+
+actions.js
+
+const actions = {
+    add({commit},msg){
+        commit('add',msg)
+    },
+    modify({commit},size){
+        commit('modify',size)
+    }
+} 
+
+export default actions;
+
+mutations.js
+
+const mutations = {
+    modify(state,size){
+        state.size=size;
+    },
+    add(state,msg){
+        let a = {text:msg}
+         state.list.push(a);
+    }
+}
+
+export default mutations;
+
+
+//取值
+import {mapGetters} from 'vuex';
+computed:{
+    //  ...mapGetters([
+    //     'getInfo',
+    //     'list',
+    //     'size'
+    // ])
+}
+
+
+//存
+methods:{
+    // add(){
+    //     this.$store.dispatch('add' , this.msg)
+        
+    // },
+    // modify(){
+    //     this.$store.dispatch('modify','small')
+    // }
+}
+

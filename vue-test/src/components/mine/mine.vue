@@ -3,6 +3,9 @@
         我的{{msg}}
 
         <input type="button" value="点击个人信息" @click='information'>
+
+        <v-touch v-on:swipeleft='left'>左划</v-touch>
+        <v-touch v-on:swiperight='right'>右划</v-touch>
     </div>
 </template>
 
@@ -14,6 +17,12 @@
             }
         },
         methods:{
+            left(){
+                console.log("left")
+            },
+            right(){
+                console.log('right')
+            },
             information(){
                 this.$router.push({
                     name:'/mine/information',

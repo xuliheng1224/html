@@ -2,7 +2,7 @@
   <div class="hello">
     <input type="button" value="进去mine" @click='mine'>
     <ul>
-      <li  v-for="(index,item) in list" :key="index" >{{item}}</li>
+      <li  v-for="(item,index) in list" :key="index" >{{item}}</li>
     </ul>
     <input type="button" value="点击增加list" @click='push'>
     <h1>{{ msg }}</h1>    

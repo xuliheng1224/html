@@ -50,7 +50,7 @@ let postData = {
     'password':'123456'
 }
 this.$http.post("",postData).then((res) =>{
-    console.log(response);
+    console.log(res);
 }).catch( (error)=> {
     console.log(error);
 });

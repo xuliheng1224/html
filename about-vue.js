@@ -59,7 +59,7 @@ this.$http.get(url,{params:postData}).then((res)=>{
 
 //post传参
 this.$http.post("",postData).then((res) =>{
-    console.log(response);
+    console.log(res);
 }).catch( (error)=> {
     console.log(error);
 });

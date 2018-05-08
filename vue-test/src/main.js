@@ -6,6 +6,8 @@ import VueRouter from 'vue-router'
 import routes from './router'
 import VueTouch from 'vue-touch'
 import store from './components/store/store'
+import axios from 'axios'
+Vue.prototype.$http=axios;
 
 
 Vue.config.productionTip = false

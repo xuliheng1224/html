@@ -35,6 +35,15 @@
         mounted(){
             var b = new Base64()
             this.msg=b.decode(this.$route.query.id)
+            var obj = {
+                a:'aaa',
+                b:'bbb'
+            }
+            this.$http.get('static/data.json',{params:obj}).then((res) =>{
+                    console.log(res);
+            }).catch( (error)=> {
+                console.log(error);
+            });
         }
     }
 </script>

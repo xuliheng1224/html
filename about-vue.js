@@ -49,6 +49,15 @@ let postData = {
     'userName':'123456789123456789',
     'password':'123456'
 }
+
+//get 请求传参
+this.$http.get(url,{params:postData}).then((res)=>{
+
+}).catch((err)=>{
+
+})
+
+//post传参
 this.$http.post("",postData).then((res) =>{
     console.log(response);
 }).catch( (error)=> {

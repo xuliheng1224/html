@@ -4,8 +4,7 @@
     <ul>
       <li  v-for="(item,index) in list" :key="index" >{{item}}</li>
     </ul>
-    <input type="button" value="点击增加list" @click='push'>
-    <h1>{{ msg }}</h1>    
+    <input type="button" value="点击增加list" @click='push'>   
     <h2>{{val|add}}</h2>
     <input type="text" v-focus style="border:2px solid #000;">
     <div>{{info}}</div>
@@ -99,6 +98,9 @@ export default {
         console.log('ffdf')
       }
     }
+  },
+  created(){
+    let root = process.env
   },
   mounted(){
    this.$refs.p3.className = "p33333"

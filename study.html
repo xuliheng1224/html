@@ -10,7 +10,7 @@
 
     <script>
     //1.返回当前url的协议
-        localtion.protocol
+      //  localtion.protocol
        function protocol(logtype,event='', openid = true, hosId){
             let apif = location.protocol+'//wifi.bblink.cn/springrx/getCloudClass'
             this.$http.post(apif,{
@@ -26,11 +26,13 @@
                 })
         }
     //调用的时候因为含有this，所以要这么写：
-    protocol.call(this,'a','b');
+    //protocol.call(this,'a','b');
     
+    //replace 替换
     var appurl = 'abcerfghf';
         appurl = appurl.replace("ab",'hs')
         console.log(appurl);    
+
     </script>
 </body>
 </html>

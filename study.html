@@ -7,7 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-
+    <div>
+        <input type="button" value="播放" id='play'>
+    </div>
+    <audio id='audio' src="./audio/jj.mp3">
+        你的浏览器不支持audio；
+    </audio>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script>
     //1.返回当前url的协议
       //  localtion.protocol
@@ -28,11 +34,130 @@
     //调用的时候因为含有this，所以要这么写：
     //protocol.call(this,'a','b');
     
-    //replace 替换
-    var appurl = 'abcerfghf';
-        appurl = appurl.replace("ab",'hs')
-        console.log(appurl);    
+    //2.replace 替换
+    function replace(){
+        var appurl = 'abcerfghf';
+            appurl = appurl.replace("ab",'hs')
+            console.log(appurl);        
+    }
 
+    //3.查找私有属性 .hasOwnProperty();
+    function private(){
+        let a = {
+            name : "xxx",
+            age : "24"
+        }
+        let b = {
+            name:'hhh'
+        }
+        console.log('name' in a,'age' in a);
+        console.log('name' in b,'age' in b);
+        console.log(a.hasOwnProperty('name'),a.hasOwnProperty('age'));
+        //in操作符会检查所有的私有属性和原型属性
+        /* 小结：
+         查找属性（不区分属性来源）：in操作符
+         查找私有属性：对象的.hasOwnProperty()方法*/
+    }
+     //private();
+
+     // 4.对象的访问器属性
+     function accessor(){
+        let test = {
+            _cookie: 2,
+            get cookie() {
+                console.log('get cookie',this._cookie);
+                return this._cookie;
+            },
+            set cookie(val) {       
+                // TODO 对_cookie和val进行判断是否有某个值再进行追加或则覆盖操作。
+                // 字符串的操作这里就不多写了
+                this._cookie = val;
+                console.log('set cookie: ' + this._cookie);
+                return val;
+            }
+        }
+        test.cookie; // get cookie '' 这里执行了get的函数
+        test.cookie = 1; // set cookie 1 1 这里执行了set的函数
+     }  
+     //accessor();
+     //5.audio
+/*   HTML5中的新元素标签:
+        src：音频文件路径。
+        preload：预加载（在页面被加载时进行加载或者说缓冲音频），如果使用了autoplay的话那么该属性失效
+        loop：设置音频是否要循环播放。
+        controls：属性供添加播放、暂停和音量控件。
+     常用的控制函数：
+        load()：加载音频、视频软件
+        play()：加载并播放音频、视频文件或重新播放暂停的的音频、视频
+        pause()：暂停出于播放状态的音频、视频文件
+        canPlayType(obj)：测试是否支持给定的Mini类型的文件
+     只读属性属性说明:
+        duration   获取媒体文件的播放时长，以s为单位，如果无法获取，则为NaN
+        paused     如果媒体文件被暂停，则返回true，否则返回false
+        ended       如果媒体文件播放完毕，则返回true
+        startTime  返回起始播放时间，一般是0.0，除非是缓冲过的媒体文件，并一部分内容已经不在缓冲区
+        error          在发生了错误后返回的错误代码
+        currentSrc  以字符串形式返回正在播放或已加载的文件，对应于浏览器在source元素中选择的文件 */
+        var audio = document.getElementById('audio');
+        var duration = audio.duration;
+        $('#play').on('click', function() {  
+            playAudio();  
+        });
+        function playAudio(){
+            if(audio.paused){
+                audio.play()
+                $('#play').val('暂停')
+            }else{
+                audio.pause()
+                $('#play').val('播放')
+            }
+        } 
+        //6.检测客户端是安卓系统还是ios系统。
+        var u = navigator.userAgent;  
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;   
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); 
+        if(isAndroid){
+        		alert("安卓系统")
+        }
+        if(isiOS){
+        		alert("ios系统")
+        }
+        //解决苹果微信返回按钮不刷新
+        pushHistory()     
+		function pushHistory() {
+        window.addEventListener("popstate", function(e) {
+　　　　　//这里监听到了后退事件
+            self.location.reload();
+        }, false);
+        var state = {
+            title : "",
+            url : "#"
+        };
+        window.history.replaceState(state, "", "#");
+    };
+    //吸顶
+    window.addEventListener('scroll',function(){
+       var class_sortTop = $('.class_sort').offset().top;
+        var classification_top = $('.classification_list').offset().top;
+        var scrollTop = $(window).scrollTop()                  
+         if(scrollTop>=class_sortTop ){                                           
+             that.searchBarFixed = true                        
+         }
+         if(scrollTop<=classification_top &&  scrollTop<=class_sortTop ){
+             a = 1;
+            that.searchBarFixed = false;
+         }     
+     })
+    //判断滚动条到达底部
+    //用jquery来实现 
+	$(window).scroll(function(){
+	　　var scrollTop = $(this).scrollTop();
+	　　var scrollHeight = $(document).height();
+	　　var windowHeight = $(this).height();
+	　　if(scrollTop + windowHeight == scrollHeight){
+	　　　　alert("已经到最底部了！");
+	　　}
+	});
     </script>
 </body>
 </html>

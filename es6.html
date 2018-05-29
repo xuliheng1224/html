@@ -10,6 +10,7 @@
     
 </body>
 <script>
+
     //promise
     new Promise(function(){
         console.log('支持promise')
@@ -54,20 +55,25 @@
         resolve(1224);
     });
 
-    p.then(multiply)
-    .then(add)
-    .then(multiply)
-    .then(add)
-    .then(function (result) {
-        console.log('Got value: ' + result);
-    });
-    
+//  p.then(multiply)
+//  .then(add)
+//  .then(multiply)
+//  .then(add)
+//  .then(function (result) {
+//      console.log('Got value: ' + result);
+//  });
+   //Promise.all([multiply(1,1),add(2,2)]).then(function(res){console.log(res)})
     
     //传参默认值
     function breakfast(dessert='apple',drink='milk'){
         return `${dessert} ${drink}`
     }
     //console.log(breakfast())
-    
+    var arr1 = ["dfdf","ghgh","err","tyt","ghgh"]
+    var arr2 = ["dhj","ghbn","ghr","hghg","tytyty"]
+    arr2.forEach(function(s,i){
+    		arr1.push(s)
+    })
+    console.log(arr1)
 </script>
 </html>

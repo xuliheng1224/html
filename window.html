@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>关于window身上的属性和方法</title>
+	</head>
+
+	<body>
+		<button onclick="clo()">关闭</button>
+		<button onclick='ope()'>打开</button>
+	</body>
+	<script>
+		function clo() {
+			//close方法用于自动关闭浏览器窗口。
+			window.close()
+		}
+
+		function ope() {
+			//语法格式：window.open(URL,窗口名称,窗口风格)
+			window.open("https://www.baidu.com")
+		}
+
+		function ale() {
+			window.alert("kkkk")
+		}
+		//显示一个确认框，在确认框内显示提示字符串，当用户单击“确定”按钮时该方法返回true，单击“取消”时返回false
+		function con() {
+			if(window.confirm("是否确认退出")) {
+				console.log("88")
+			} else {
+				console.log("留下来吧")
+			}
+		}
+		//显示一个输入框，在输入框内显示提示字符串，在输入文本框显示缺省文本，并等待用户输入，当用户单击“确定”按钮时，返回用户输入的字符串，当单击“取消”按钮时，返回null值。
+		function pro() {
+			var name=prompt("Please enter your name")
+			  if (name!=null && name!="")
+			    {
+			    console.log("Hello " + name + "!")
+    			}
+		}
+		
+		//定时设置，当到了指定的毫秒数后，自动执行代码字符表达式。
+		function timeout(){
+			setTimeout(function(){
+				console.log("延迟")
+			},1000)
+		}
+		//设定一个时间间隔后(第二个参数)，反复执行“代码字符表达式”的内容
+		function Interval(){
+			setInterval(function(){
+				console.log("定时")
+			},1000)
+		}
+		function(){
+			clearInterval()
+		}
+		//功能：取消setInterval设置的定时。其中的参数是setInterval方法的返回值。
+		
+	</script>
+
+</html>

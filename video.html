@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="neplayer.min.css" />
+	<style type="text/css">
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+	<!--<script type="text/javascript" src='https://nos.netease.com/vod163/nep.min.js'>
+	</script>-->
+
+	<body>
+		<video id="video" controls preload style='width:100%;height:100%;'>
+			<source src="https://pullhlsbd022d37.live.126.net/live/0f7acebc98b54e1ebcc00d1f70ec9c64/playlist.m3u8" type="application/x-mpegURL" />
+			</video>
+		<script type="text/javascript">
+			if(document.getElementById('video')){
+				setTimeout(function(){
+					document.getElementById('video').play();
+				},1000)
+			}
+			
+			// 点击按钮设置播放地址
+//			neplayer('my-video').setDataSource({
+//				src: "http://pullhlsbd022d37.live.126.net/live/3b5baacd3e4546a390c79faf90770bc2/playlist.m3u8",
+//				type: "application/x-mpegURL"
+//			});
+//			neplayer('my-video').play();
+			//function get_ios_version(){
+			//  var ua = navigator.userAgent.toLowerCase();
+			//  var version = null;
+			//  if (ua.indexOf("like mac os x") > 0) {
+			//      var reg = /os [\d._]+/gi;
+			//      var v_info = ua.match(reg);
+			//      version = (v_info + "").replace(/[^0-9|_.]/ig, "").replace(/_/ig, "."); //得到版本号9.3.2或者9.0
+			//      version = parseInt(version.split('.')[0]); // 得到版本号第一位
+			//  }
+			//
+			//  return version;
+			//}
+			//alert(get_ios_version())
+		</script>
+	</body>
+
+</html>

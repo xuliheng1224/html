@@ -17,7 +17,25 @@
 			
 			3.移动端调试工具vConsole;
 			
-			4.移动端真机页面调试工具 spy-debugger 
+			4.移动端真机页面调试工具 spy-debugger
+			
+			5.vue的computed 里面不能用this
+			
+			6.window.print() 打印页面后原来的点击事件都会失效，可以使用
+			  var newstr = document.getElementById('bigcard').innerHTML
+		      document.body.innerHTML = newstr
+		      window.print()
+		      window.location.reload()
+		     
+		     7. 微信环境授权哈希路由#后面的路由不解析  vue中
+		     export default new Router({
+			  mode: 'history',
+			  routes: [{
+			      path: '/',
+			      name: 'Home',
+			      component: Home
+			    }]
+			    
         </p>
         
     </div>

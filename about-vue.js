@@ -1,3 +1,16 @@
+// webpack 的反向代理
+在config/index.js 中的dev对象中找到
+proxyTable:{
+  '/api': {
+    target: 'http://www.123369.com.cn',
+    secure: false,  // 如果是https接口，需要配置这个参数
+    changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+    pathRewrite: {
+      '^/api': '/api'
+    }
+  }
+}
+// 请求的url 是'/api/....'
 //1.关于vue的路由   在main.js中使用
 import Vue from 'vue';
 import VueRouter from 'vue-router';

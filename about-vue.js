@@ -393,12 +393,12 @@ methods:{
 }
 
 //15 destroyed() 生命周期 在离开这个页面的时候调用，一般用于隐藏弹出框，遮罩层等
- destroyed() {
-    // 离开时隐藏弹出按钮（如果用户没有手动操作）
-    if (this.hidePop) {
-      this.hidePop = false;
-    }
-  }
+//  destroyed() {
+//     // 离开时隐藏弹出按钮（如果用户没有手动操作）
+//     if (this.hidePop) {
+//       this.hidePop = false;
+//     }
+//   }
 
   // axios 的封装
 import axios from 'axios'

@@ -7,9 +7,9 @@
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/xuliheng.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/study.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/window.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/about-vue.js" beforeDir="false" afterPath="$PROJECT_DIR$/about-vue.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/study.html" beforeDir="false" afterPath="$PROJECT_DIR$/study.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/window.html" beforeDir="false" afterPath="$PROJECT_DIR$/window.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,7 +26,7 @@
       <file leaf-file-name="about-vue.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/about-vue.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7820">
+            <state relative-caret-position="7593">
               <caret line="440" column="8" selection-start-line="440" selection-start-column="8" selection-end-line="440" selection-end-column="8" />
               <folding>
                 <element signature="e#27#49#0" expanded="true" />
@@ -123,16 +123,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530864191360</updated>
-      <workItem from="1530864194383" duration="985000" />
+      <workItem from="1530864194383" duration="1107000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="985000" />
+    <option name="totallyTimeSpent" value="1107000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="23" width="1231" height="724" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24958678" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -141,7 +140,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.062200956" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.25199363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -168,7 +167,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/about-vue.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7820">
+        <state relative-caret-position="7593">
           <caret line="440" column="8" selection-start-line="440" selection-start-column="8" selection-end-line="440" selection-end-column="8" />
           <folding>
             <element signature="e#27#49#0" expanded="true" />

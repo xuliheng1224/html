@@ -1,3 +1,10 @@
+//vue项目的搭建
+1.安装node.js
+2.npm install -g cnpm --registry=https://registry.npm.taobao.org
+3.cnpm install -g vue-cli 
+4.vue init webpack Vue-Project
+5.cd Vue-Project && cnpm i
+6.npm run dev 
 // webpack 的反向代理
 在config/index.js 中的dev对象中找到
 proxyTable:{
@@ -11,6 +18,66 @@ proxyTable:{
   }
 }
 // 请求的url 是'/api/....'
+  // axios 的封装
+import axios from 'axios'
+import cookie from 'js-cookie'
+export function fetch (options, _this) {
+    return new Promise((resolve, reject) => {
+        if (_this) {
+            _this.$store.dispatch('loadingState', {load: true})
+        }
+        var adminInfo = cookie.get('adminInfo') ? JSON.parse(cookie.get('adminInfo')) : ''
+        var schoolInfos = cookie.get('schoolInfos') ? JSON.parse(cookie.get('schoolInfos')) : ''
+        const instance = axios.create({
+            headers: {
+                'Content-Type': options.responseType ? options.responseType : 'application/json',
+                'crmtoken': adminInfo.token,
+                'hosId': schoolInfos.hosId,
+                'schoolId': schoolInfos.schoolId
+            },
+            timeout: 30 * 1000 // 设置30秒超时
+        })
+        instance(options)
+            .then(response => {
+                if (!response.data.code) {
+                    resolve(response)
+                    options.success(response)
+                } else if (['9002'].includes(response.data.code)) { // token失效
+                    cookie.remove('adminInfo')
+                    cookie.remove('schoolInfos')
+                    if (window.location.href.indexOf('login') === -1) {
+                        window.location.href = window.location.origin + '/login'
+                    }
+                } else if (['0000'].includes(response.data.code)) {
+                    resolve(response)
+                    options.success(response)
+                } else {
+                    window.$global_this.$message.error(response.data.msg)
+                }
+                // if (_this) {
+                //     _this.$store.dispatch('loadingState', {load: false})
+                // }
+            })
+            .catch(error => {
+                console.log('请求异常信息:' + error)
+                window.$global_this.$message.error(error.message)
+                // if (_this) {
+                //     _this.$store.dispatch('loadingState', {load: false})
+                // }
+                reject(error)
+            })
+    })
+}
+
+fetch({
+    url: '/api/',
+    method: 'get', // post ,data:{}
+    params: {},
+    responseType: '',
+    success: (res) => {},
+    fail: (err) => {}
+
+}, this)
 //1.关于vue的路由   在main.js中使用
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -413,63 +480,54 @@ methods:{
 //     }
 //   }
 
-  // axios 的封装
-import axios from 'axios'
-import cookie from 'js-cookie'
-export function fetch (options, _this) {
-    return new Promise((resolve, reject) => {
-        if (_this) {
-            _this.$store.dispatch('loadingState', {load: true})
-        }
-        var adminInfo = cookie.get('adminInfo') ? JSON.parse(cookie.get('adminInfo')) : ''
-        var schoolInfos = cookie.get('schoolInfos') ? JSON.parse(cookie.get('schoolInfos')) : ''
-        const instance = axios.create({
-            headers: {
-                'Content-Type': options.responseType ? options.responseType : 'application/json',
-                'crmtoken': adminInfo.token,
-                'hosId': schoolInfos.hosId,
-                'schoolId': schoolInfos.schoolId
-            },
-            timeout: 30 * 1000 // 设置30秒超时
-        })
-        instance(options)
-            .then(response => {
-                if (!response.data.code) {
-                    resolve(response)
-                    options.success(response)
-                } else if (['9002'].includes(response.data.code)) { // token失效
-                    cookie.remove('adminInfo')
-                    cookie.remove('schoolInfos')
-                    if (window.location.href.indexOf('login') === -1) {
-                        window.location.href = window.location.origin + '/login'
-                    }
-                } else if (['0000'].includes(response.data.code)) {
-                    resolve(response)
-                    options.success(response)
-                } else {
-                    window.$global_this.$message.error(response.data.msg)
-                }
-                // if (_this) {
-                //     _this.$store.dispatch('loadingState', {load: false})
-                // }
-            })
-            .catch(error => {
-                console.log('请求异常信息:' + error)
-                window.$global_this.$message.error(error.message)
-                // if (_this) {
-                //     _this.$store.dispatch('loadingState', {load: false})
-                // }
-                reject(error)
-            })
-    })
+关于vuex 的另一种
+在store 下的index下:
+import Vue from 'vue';
+import Vuex from 'vuex';
+import login from './login' //路由模块
+
+Vue.use(Vuex)
+export default new Vuex.Store({
+	modules: {
+		login
+	}
+})
+// login模块下
+// index.js
+import * as types from './mutationType'
+import * as types from './actions'
+const state = () => ({
+	info: {}
+})
+const mutations = {
+	[types.INFO] (state, data) {
+		state.info = data
+	}
+}
+export default {
+	state, actions, mutations
+}
+// mutationType.js
+export const INFO = 'INFO'
+// actions.js
+import * as types from './mutationType'
+import { fetch } from '../common/fetch'
+export const getInfo = ({commit}, op) => {
+	return fetch({
+		url: '',
+		success: (res) => {
+			commit('INFO', op)
+		}
+	})
 }
 
-fetch({
-    url: '',
-    method: 'get', // post ,data:{}
-    params: {},
-    responseType: '',
-    success: (res) => {},
-    fail: (err) => {}
+//存入 op传this进去
+this.$store.dispatch('getInfo', op)
 
-}, this)
+//取出
+import { mapState } from 'vuex'
+computed: {
+	...mapState({
+		info: state => state.login.info
+	})
+}

@@ -1,8 +1,7 @@
 import HelloWorld from '../components/HelloWorld'
+import VueRouter from 'vue-router'
 
-
-export default [
-  {
+const routes = [{
     path: '/',
     name: 'HelloWorld',
     component: HelloWorld
@@ -15,5 +14,10 @@ export default [
     path:'/mine/information',
     name:'/mine/information',
     component:r=>require.ensure([],()=>r(require('../components/mine/information')),'mine')
-  }
-]
+  }]
+
+  const router = new VueRouter({
+    routes
+  })
+
+export default router

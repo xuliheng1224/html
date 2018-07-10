@@ -18,7 +18,22 @@
 			3.移动端调试工具vConsole;
 			
 			4.移动端真机页面调试工具 spy-debugger
-			
+			安装
+			Windows 下
+			npm install spy-debugger -g
+
+			Mac 下
+			sudo npm install spy-debugger -g
+			第一步：手机和PC保持在同一网络下（比如同时连到一个Wi-Fi下）
+
+			第二步：命令行输入spy-debugger，按命令行提示用浏览器打开相应地址。
+
+			第三步：设置手机的HTTP代理，代理IP地址设置为PC的IP地址，端口为spy-debugger的启动端口(默认端口：9888)。
+
+			第四步：安装证书。
+
+			第五步：用手机浏览器访问你要调试的页面即可。
+
 			5.vue的computed 里面不能用this
 			
 			6.window.print() 打印页面后原来的点击事件都会失效，可以使用
@@ -27,8 +42,8 @@
 		      window.print()
 		      window.location.reload()
 		     
-		     7. 微信环境授权哈希路由#后面的路由不解析  vue中
-		     export default new Router({
+			7. 微信环境授权哈希路由#后面的路由不解析  vue中
+		      export default new Router({
 			  mode: 'history',
 			  routes: [{
 			      path: '/',

@@ -1,22 +1,22 @@
 //vue项目的搭建
-1.安装node.js
-2.npm install -g cnpm --registry=https://registry.npm.taobao.org
-3.cnpm install -g vue-cli 
-4.vue init webpack Vue-Project
-5.cd Vue-Project && cnpm i
-6.npm run dev 
+// 1.安装node.js
+// 2.npm install -g cnpm --registry=https://registry.npm.taobao.org
+// 3.cnpm install -g vue-cli
+// 4.vue init webpack Vue-Project
+// 5.cd Vue-Project && cnpm i
+// 6.npm run dev
 // webpack 的反向代理
-在config/index.js 中的dev对象中找到
-proxyTable:{
-  '/api': {
-    target: 'http://www.123369.com.cn',
-    secure: false,  // 如果是https接口，需要配置这个参数
-    changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
-    pathRewrite: {
-      '^/api': '/api'
-    }
-  }
-}
+// 在config/index.js 中的dev对象中找到
+// proxyTable:{
+//   '/api': {
+//     target: 'http://www.123369.com.cn',
+//     secure: false,  // 如果是https接口，需要配置这个参数
+//     changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
+//     pathRewrite: {
+//       '^/api': '/api'
+//     }
+//   }
+// }
 // 请求的url 是'/api/....'
   // axios 的封装
 import axios from 'axios'
@@ -142,7 +142,7 @@ this.$http.post("",postData).then((res) =>{
     console.log(res);
 }).catch( (error)=> {
     console.log(error);
-});
+})
 
 //4.关于vue的自定义过滤器filters， 自定义指令directives，可以看作对象，然后调用方法
 
@@ -202,10 +202,10 @@ filters:{
 
 //6.slot标签是一个占位符
 
-<div>
-    <header>这是头部</header>
-    <slot name="content"></slot>
-</div>
+// <div>
+//     <header>这是头部</header>
+//     <slot name="content"></slot>
+// </div>
 
 /* <v-header>
     <div slot="content">
@@ -219,8 +219,8 @@ filters:{
 // <button @click="choose='dingdan'">切换到订单页</button>
 // <component :is="choose"></component>
 
-import detail from './detail';
-import dingdan from './dingdan';
+//import detail from './detail';
+//import dingdan from './dingdan';
 
 // data () {
 //     return {
@@ -228,20 +228,20 @@ import dingdan from './dingdan';
 //     }
 // }    
 
-components:{
-    detail,dingdan
-}
+// components:{
+//     detail,dingdan
+// }
 
 //8.关于vue的props 子组件获取父组件的信息；
 
 //父组件
-<child parentmsg="fromfa"></child>
-import child from './child';
-export default{
-    components:{
-        child
-    }
-}
+// <child parentmsg="fromfa"></child>
+// import child from './child';
+// export default{
+//     components:{
+//         child
+//     }
+// }
 
 //子组件
 /* <div>{{info}}</div>
@@ -480,9 +480,9 @@ methods:{
 //     }
 //   }
 
-关于vuex 的另一种
-在store 下的index下:
-import Vue from 'vue';
+// 关于vuex 的另一种
+// 在store 下的index下:
+// import Vue from 'vue';
 import Vuex from 'vuex';
 import login from './login' //路由模块
 
@@ -526,8 +526,8 @@ this.$store.dispatch('getInfo', op)
 
 //取出
 import { mapState } from 'vuex'
-computed: {
-	...mapState({
-		info: state => state.login.info
-	})
-}
+// computed: {
+// 	...mapState({
+// 		info: state => state.login.info
+// 	})
+// }

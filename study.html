@@ -28,6 +28,7 @@
 				}
 			}
 			window.addEventListener("pageshow", myFunction);
+
 			//navigator.userAgent.indexOf来判断浏览器类型
 			var ua = navigator.userAgent;
 			//  if(ua.indexOf("Android")>0 || ua.indexOf("iPhone")>0 || ua.indexOf("iPad")>0){//移动端  
@@ -174,16 +175,17 @@
 				window.history.replaceState(state, "", "#");
 			};
 			//吸顶
+			var a;
 			window.addEventListener('scroll', function() {
 				var class_sortTop = $('.class_sort').offset().top;
 				var classification_top = $('.classification_list').offset().top;
 				var scrollTop = $(window).scrollTop()
 				if(scrollTop >= class_sortTop) {
-					that.searchBarFixed = true
+					this.searchBarFixed = true
 				}
 				if(scrollTop <= classification_top && scrollTop <= class_sortTop) {
 					a = 1;
-					that.searchBarFixed = false;
+                    this.searchBarFixed = false;
 				}
 			})
 			//判断滚动条到达底部

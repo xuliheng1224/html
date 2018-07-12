@@ -36,5 +36,28 @@
           console.log(document.documentElement.style.fontSize)
       } 
   </script>
+  px自动转换成rem
+ 1.先引入flexible.css和flexible.js
+ 2.下载postcss-px2rem-exclude --save
+ 3.postcss-loader --save-dev
+ 4.在.postcssrc.js的文件中设置
+  module.exports = {
+      "plugins": {
+          "postcss-import": {},
+          "postcss-url": {},
+          // to edit target browsers: use "browserslist" field in package.json
+          "autoprefixer": {},
+          "postcss-px2rem-exclude": {
+              baseDpr: 2,             // base device pixel ratio (default: 2)
+              threeVersion: false,    // whether to generate @1x, @2x and @3x version (default: false)
+              remVersion: true,       // whether to generate rem version (default: true)
+              remUnit: 75,            // rem unit value (default: 75)
+              remPrecision: 6,         // rem precision (default: 6)
+              exclude: /node_modules|static/i
+          }
+      }
+  }
+ 5. 如果你想用px不用rem则： 12px /* px */
+    如果你想用px不放大： 12px /* no */
 </body>
 </html>

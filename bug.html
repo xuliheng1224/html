@@ -50,7 +50,10 @@
 			      name: 'Home',
 			      component: Home
 			    }]
-			    
+            8.vue 图片不显示
+                1、在data 里写入  logo: require('../assets/images/logo.png')
+
+                2、在模板中写入 <img :src="logo">
         </p>
         
     </div>

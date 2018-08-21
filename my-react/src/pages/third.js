@@ -35,6 +35,12 @@ export default class Third extends  Component {
 }
 
 class Content extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      num : 100
+    }
+  }
   componentWillMount () {
     console.log('componentWillMount')
   }
@@ -42,16 +48,16 @@ class Content extends Component {
     console.log('componentDidMount')
   }
   componentWillReceiveProps(newProps) {
-    console.log('componentWillReceiveProps')
+    console.log('componentWillReceiveProps', newProps)
   }
   shouldComponentUpdate (newProps, newState) {
     return true; //当该值设为false的时候，不会更新组件，即componentWillUpdate和componentDidUpdate不会被执行
   }
   componentWillUpdate (nextProps, nextState) {
-    console.log('componentWillUpdate');
+    console.log('componentWillUpdate',nextProps,nextState );
   }
   componentDidUpdate (prevProps, prevState) {
-    console.log('componentDidUpdate')
+    console.log('componentDidUpdate',prevProps,prevState)
   }
   componentWillUnmount() {
     console.log('componentWillUnmount')

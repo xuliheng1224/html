@@ -9,15 +9,13 @@ export default class Hello extends Component {
   render () {
     return (
       <Router>
-        <div>
-          <Switch>
-            <Route exact path="/" component={App} />{/*exact表示只有路径完全完全匹配，才渲染*/}
-            <Route path="/first" component={First} />
-            <Route path="/second" component={Second} />
-            <Route path="/third/:id/:p" component={Third} />
-            <Route component={Notfound} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact path="/" component={App} />{/*exact表示只有路径完全完全匹配，才渲染*/}
+          <Route path="/first" component={First} />
+          <Route path="/second" component={Second} />
+          <Route path="/third/:id/:p" component={Third} />
+          <Route component={Notfound} />
+        </Switch>
       </Router>
     )
   }

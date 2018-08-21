@@ -33,11 +33,16 @@ class App extends Component {
     }
     this.props.history.push(path);
   }
+  clickMe (a,b,e) {
+    console.log(this,a,b,e)
+  }
   render() {
     // console.log(this.props)
     return (
       <div>
         app页面
+        <p onClick={this.clickMe.bind(this,2,4)}>测试一下点击时间都是传的啥</p>
+        <hr/>
         <ul>
           <li>
             <Link to="/first?a=3&b=4&c=5">跳转到第一个页面</Link>

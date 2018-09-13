@@ -6,6 +6,7 @@ function getOpenId() {
       var appid = 'wx0919cce16c509c14' // 填写微信小程序appid
       var secret = '30a3c18e8de1dc069310ad597be2ac34' // 填写微信小程序secret
       // 调用request请求api转换登录凭证
+      // 这样做不安全，需要传loginCode.code和appid到后端，然后获取openId
       wx.request({
         url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + appid + '&secret=' + secret + '&grant_type=authorization_code&js_code=' + loginCode.code,
         header: {

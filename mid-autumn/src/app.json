@@ -1,0 +1,17 @@
+{
+  "pages": [
+    "pages/index/main",
+    "pages/second/main",
+    "pages/counter/main",
+    "pages/logs/main",
+    "pages/upload/main",
+    "pages/info/main",
+    "pages/mix/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "中秋萌宝拍",
+    "navigationBarTextStyle": "black"
+  }
+}

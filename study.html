@@ -20,6 +20,11 @@
 		<script type="text/javascript" src='md.js'>
 		</script>
 		<script>
+			// getElementsByTagName这个函数的返回值是个数组,所以就要使用[0]来取其中的一个
+			// 添加 单个 class:
+			dom.classList.add("className1")
+			// 移除一个类:
+			dom.classList.remove("className1")
 			//移动端返回上一页，页面刷新
 			function myFunction(event) {
 				//alert("页面是否从浏览器缓存中加载? " + event.persisted);
@@ -222,7 +227,7 @@
 			// 怎么判断一个对象是否为空
 			var obj = {}
 			// 1
-			function judgeObj（ obj） {
+			function judgeOb(obj){
 				for(var a in obj) {
 					return alert('非空对象')
 				}

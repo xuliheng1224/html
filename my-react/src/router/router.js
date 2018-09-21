@@ -4,7 +4,8 @@ import App from '../App'
 import First from '../pages/first'
 import Second from '../pages/second'
 import Notfound from '../pages/notfound'
-import Third from '../pages/third';
+import Third from '../pages/third'
+import Luck from '../pages/luck'
 export default class Hello extends Component {
   render () {
     return (
@@ -14,6 +15,7 @@ export default class Hello extends Component {
           <Route path="/first" component={First} />
           <Route path="/second" component={Second} />
           <Route path="/third/:id/:p" component={Third} />
+          <Route path="/luck" component={Luck} />
           <Route component={Notfound} />
         </Switch>
       </Router>

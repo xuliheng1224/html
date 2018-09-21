@@ -1,0 +1,36 @@
+
+body:after{
+  position: relative;
+}
+*{
+  margin: 0;padding: 0;
+}
+
+.shanDeng{
+  width: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+#btn .cjBtn,.shanDeng .active,.shanDeng td{
+  width: 1rem;
+  height: 1rem;
+  background-repeat: no-repeat;
+}
+
+#btn.cjBtn{
+  background-image: url('http://www.17sucai.com/preview/775073/2017-12-01/cj/img/cjBtn.png');
+  background-size: 100% 100%;
+}
+
+#luck .active{
+  background-image: url('http://www.17sucai.com/preview/775073/2017-12-01/cj/img/active.png');
+}
+.shanDeng td{
+  text-align: center;
+  background-image: url('http://www.17sucai.com/preview/775073/2017-12-01/cj/img/proBj.png');
+  background-size: 100% 100%;
+}
+.shanDeng table{
+  margin: 0 auto;
+}

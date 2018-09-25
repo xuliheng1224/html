@@ -1,8 +1,8 @@
 
 var proxy = {
   "proxy": {
-    "/crm": {
-      "target": "http://fcrm.bblink.cn",
+    "/api": {
+      "target": "http://fapi.bblink.cn",
       "changeOrigin": true,
       "pathRewrite": {
         "^/crm": "/crm"

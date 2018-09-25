@@ -51,12 +51,14 @@ export default class Luck extends Component {
       return false
     }	else {
       this.setState({
-        speed: 100
+        speed: 40
+      }, () => {
+          this.roll()
+          this.setState({
+          click: true
+        })
       })
-      this.roll()
-      this.setState({
-        click: true
-      })
+      
       return false
     }
   }
@@ -66,6 +68,7 @@ export default class Luck extends Component {
     })
 		this.rolls()
 		if (this.state.times > this.state.cycle+10 && this.state.prize===this.state.index) {
+      console.log(3434)
       clearTimeout(this.state.timer)
       this.setState({
         prize: -1
@@ -79,7 +82,7 @@ export default class Luck extends Component {
 		}else{
 			if (this.state.times<this.state.cycle) {
         this.setState({
-          speed: this.state.speed -10
+          speed: this.state.speed - 10
         })
 			}else if(this.state.times === this.state.cycle) {
 				var index = Math.floor(Math.random()*7)
@@ -87,14 +90,14 @@ export default class Luck extends Component {
 				// 	index = 7
 				// }else {
 				// 	index = 5
-				// }
+        // }
 				this.setState({
           prize: index
         })//最终中奖位置
 			} else {
 				if (this.state.times > this.state.cycle+10 && ((this.state.prize===0 && this.state.index===7) || this.state.prize===this.state.index+1)) {
 					this.setState({
-            speed: this.state.speed + 100
+            speed: this.state.speed + 110
           })
 				}else{
 					this.setState({
@@ -116,23 +119,23 @@ export default class Luck extends Component {
   render() {
     return (
       <div className="shanDeng" id="deng">
-        <div id="luck" ref='luck'>
-          <table style={{borderSpacing: '.08rem .03rem'}}>
+        <div id="luck">
+          <table style={{borderSpacing: '.3rem .3rem'}}>
             <tbody>
               <tr>
-                <td className="luck-unit luck-unit-0"><img src="http://www.17sucai.com/preview/775073/2017-12-01/cj/img/01.png" alt=''/></td>
-                <td className="luck-unit luck-unit-1"><img src="http://www.17sucai.com/preview/775073/2017-12-01/cj/img/02.png" alt=''/></td>
-                <td className="luck-unit luck-unit-2"><img src="http://www.17sucai.com/preview/775073/2017-12-01/cj/img/03.png" alt=''/></td>
+                <td className="luck-unit luck-unit-0">一等奖</td>
+                <td className="luck-unit luck-unit-1">二等奖</td>
+                <td className="luck-unit luck-unit-2">三等奖</td>
               </tr>
               <tr>
-                <td className="luck-unit luck-unit-7"><img src="http://www.17sucai.com/preview/775073/2017-12-01/cj/img/05.png" alt=''/></td>
+                <td className="luck-unit luck-unit-7">四等奖</td>
                 <td className="cjBtn" id="btn" onClick={this.start.bind(this)}/>
-                <td className="luck-unit luck-unit-3"><img src="http://www.17sucai.com/preview/775073/2017-12-01/cj/img/01.png" alt=''/></td>
+                <td className="luck-unit luck-unit-3">五等奖</td>
               </tr>
               <tr>
-                <td className="luck-unit luck-unit-6"><img src="http://www.17sucai.com/preview/775073/2017-12-01/cj/img/02.png" alt=''/></td>
-                <td className="luck-unit luck-unit-5"><img src="http://www.17sucai.com/preview/775073/2017-12-01/cj/img/04.png" alt=''/></td>
-                <td className="luck-unit luck-unit-4"><img src="http://www.17sucai.com/preview/775073/2017-12-01/cj/img/03.png" alt=''/></td>
+                <td className="luck-unit luck-unit-6">六等奖</td>
+                <td className="luck-unit luck-unit-5">七等奖</td>
+                <td className="luck-unit luck-unit-4">八等奖</td>
               </tr>
           </tbody>
         </table>

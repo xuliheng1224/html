@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import {Link} from 'react-router-dom'
 
+// import {getQueryString} from '../common/util'
+
 class App extends Component {
   constructor (props) {
     super(props)
@@ -21,7 +23,10 @@ class App extends Component {
     }
   })*/
   componentDidMount () {
-    console.log(this.state.name)
+    // console.log(this.state.name)
+    // var redirect_urls = encodeURIComponent(window.location.href) // 写一个空白页面判断
+    // var urls =  "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx5fbc1df873478202&redirect_uri=" + redirect_urls + "&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect"
+    // window.location.href = urls
   }
   goSecond () {
     var path = {

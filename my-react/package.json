@@ -93,5 +93,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "vconsole": "^3.2.0"
   }
 }

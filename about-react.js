@@ -62,3 +62,13 @@ class App extends Component {
   })*/ 
 // 5. this的绑定
 // onClick={this.setNum.bind(this)}  
+
+// this.setState是个异步函数，可能有时候赋值不上，解决方法
+this.setState({
+  speed: 40
+}, () => {
+    this.roll()
+    this.setState({
+    click: true
+  })
+})

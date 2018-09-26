@@ -1,0 +1,107 @@
+.ment_top {
+  margin: 20px;
+}
+
+.ment_box {
+  display: inline-block;
+  width: 30%;
+}
+
+.ment_box div {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.number {
+  font-size: 38px;
+  color: #5a8dfc;
+  align-content: center;
+}
+
+.explain {
+  font-size: 14px;
+  color: #444444;
+}
+
+.box_Middle {
+  border-left: 1px solid #d8dee5;
+  border-right: 1px solid #d8dee5;
+}
+
+.box_right {
+  border-right: 1px solid #d8dee5;
+}
+
+.el-table thead {
+  background: rgba(241, 246, 255, 1);
+  color: #000000;
+}
+
+.user_left {
+  display: inline-block;
+  width: 30%;
+  border-right: 1px solid #d8dee5;
+}
+
+.user_left div {
+  display: inline-block;
+  /*vertical-align: middle;
+            text-align: center;*/
+}
+
+.user_img {
+  padding-left: 150px;
+}
+
+.user_right {
+  width: 69%;
+  display: inline-block;
+}
+
+.curriculum_box {
+  display: inline-block;
+  width: 24%;
+}
+
+.curriculum_box div {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.right_box {
+  display: inline-block;
+  width: 24%;
+}
+
+.right_box div {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.lecturer_box div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.lecturer_text {
+  font-size: 24px;
+}
+  .up-module {
+    display: flex;
+    align-items: center;
+    padding-top: 30px;   
+    padding-left: 20px; 
+  }
+  .date-time {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+  #cul-data-container {
+    width: 800px;
+    height: 500px;
+    margin: 0 auto;
+  }
+  .paging {
+    text-align: center;
+    padding-top: 20px;
+  }

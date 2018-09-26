@@ -1,0 +1,7 @@
+/build/
+/config/
+/dist/
+/*.js
+/src/App.vue
+/src/common/util.js
+/static/

@@ -72,3 +72,27 @@ this.setState({
     click: true
   })
 })
+
+跳转的时候子组件中获取不到history...
+解决方法:
+1. 从父组件传过去
+render() {
+    return (
+      <div className="homePage">
+       <MyAppModal  history ={this.props.history}  />
+      </div>)
+    }
+子组件接受
+async openProject(index){
+   return await  this.props.history.push('/myproject/'+index);
+}
+2. npm i prop-types --save-dev
+import PropTypes from 'prop-types';
+constructor(props) {
+    super(props);
+  }
+  // 这一步是重点
+  static contextTypes = {
+    router: PropTypes.object.isRequired
+  };
+  this.context.router.history.push("/otherPath");

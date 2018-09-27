@@ -1,13 +1,14 @@
 
 var proxy = {
   "proxy": {
-    "/api": {
-      "target": "https://fapi.bblink.cn",
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/api": "/api"
+    '/api': {
+      target: 'http://fapi.bblink.cn',
+      secure: false,
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': '/api'
       }
-    } 
+    }
   }
 }
 

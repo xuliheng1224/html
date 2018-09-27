@@ -5,6 +5,17 @@ import wx from 'weixin-js-sdk'
 export default class Second extends  Component {
   componentDidMount () {
     // console.log(this.props.location.query.name) // 刷新会页面报错不存在name
+    fetch({
+      url: '/api/order/list',
+      method: 'get',
+      params: {},
+      success: (res) => {
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+
   }
   check () {
     fetch({

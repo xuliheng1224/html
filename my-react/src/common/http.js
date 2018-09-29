@@ -3,9 +3,9 @@ import axios from 'axios'
 export function fetch (options) {
   return new Promise((resolve, reject) => {
     const instance = axios.create({
-      headers: {
-        'token': 12345
-      },
+      // headers: {
+      //   'token': 12345
+      // },
       timeout: 30*1000
     })
     instance(options)

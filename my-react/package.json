@@ -96,5 +96,14 @@
   },
   "devDependencies": {
     "vconsole": "^3.2.0"
-  }
+  },
+  "proxy": {
+    "/api": {
+      "target": "http://fapi.bblink.cn",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/api": "/"
+      }
+    }
+  } 
 }

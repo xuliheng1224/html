@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {getQueryString} from '../common/util'
+// import { fetch } from "../common/http"
 export default class First extends  Component {
   constructor (props) {
     super(props)
@@ -11,6 +12,8 @@ export default class First extends  Component {
         {bookname: '4', time: '四号'}
       ]
     }
+  }
+  componentDidMount () { 
   }
   render () {
     console.log(getQueryString('a'))

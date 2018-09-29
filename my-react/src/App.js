@@ -29,14 +29,14 @@ class App extends Component {
     // window.location.href = urls
   }
   goSecond () {
-    // var path = {
-    //   pathname: '/second',
-    //   query: {
-    //     name: 'xu',
-    //     age: 24
-    //   }
-    // }
-    this.props.history.push('/third/222/7777');
+    var path = {
+      pathname: '/second',
+      query: {
+        name: 'xu',
+        age: 24
+      }
+    }
+    this.props.history.push(path);
   }
   clickMe (a,b,e) {
     console.log(this,a,b,e)

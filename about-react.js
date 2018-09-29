@@ -27,12 +27,30 @@ export default class Hello extends Component {
     )
   }
 }
+// 在父组件里面设置路由，父组件是公共模块
+// render(){
+//   return (
+//       <Router>
+//           <div>
+//               <ul>
+//                   <li><Link to="/">App</Link></li>
+//                   <li><Link to="/shop">Shop</Link></li>
+//                   <li><Link to="/owner">Owner</Link></li>
+//               </ul>
+//               <hr />
+//               <Route exact path="/" component={App} />
+//               <Route path="/shop" component={Shop} />
+//               <Route path="/owner" component={Owner} />
+//           </div>
+//       </Router>  
+//   )
+// }        
 
-/* 3. 路由传参
-  1.<Link to="/first?a=3&b=4&c=5">跳转到第一个页面</Link> this.props.history.push(path)
-  2.<Link to="/third/222/7777">跳转到第三个页面 </Link> <Route path="/third/:id/:p" component={Third} />
-    取： this.props.match.params.id
-  3.var path = {
+/*3. 路由传参
+ 1.<Link to="/first?a=3&b=4&c=5">跳转到第一个页面</Link> this.props.history.push(path)
+ 2.<Link to="/third/222/7777">跳转到第三个页面 </Link> <Route path="/third/:id/:p" component={Third} />
+   取： this.props.match.params.id
+ 3.var path = {
     pathname: '/second',
     query: {
       name: 'xu',

@@ -1,0 +1,59 @@
+
+#components-layout-demo-custom-trigger .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+#components-layout-demo-custom-trigger .trigger:hover {
+  color: #1890ff;
+}
+
+#components-layout-demo-custom-trigger .logo {
+  height: 52px;
+  margin: 16px;
+  display: flex;
+  align-items: center;
+}
+#components-layout-demo-custom-trigger .log-img {
+  width: 35px;
+}
+#components-layout-demo-custom-trigger .logo .title {
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  margin-left: 10px;
+  letter-spacing: 3px;
+}
+.right-module {
+  float: right;
+  display: flex;
+  align-items: center;
+  height: 64px;
+}
+.right-module .waring {
+  font-size: 26px;  
+}
+.right-module .userInfo {
+  margin-left: 10px;
+  font-size: 13px;
+}
+.right-module .userTx {
+  margin-left: 16px;
+}
+.line {
+  border-bottom: 1px solid #e8e8e8;
+  width: 100px;   
+}
+.line-txt {
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.line-txt p {
+  height: 30px;
+}
+.sider-main a {
+  color: white;
+}

@@ -1,0 +1,7 @@
+.label-table tr :last-child {
+  width: 160px;
+}
+.ant-table-pagination.ant-pagination {
+  text-align: center;
+  float: none;
+}

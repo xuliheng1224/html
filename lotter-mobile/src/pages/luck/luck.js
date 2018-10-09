@@ -11,10 +11,12 @@ export default class Luck extends Component {
       speed:20,	//初始转动速度
       times:0,	//转动次数
       cycle:50,	//转动基本次数：即至少需要转动多少次再进入抽奖环节
-      prize:-1,	//中奖位置
+      prize:-1,	//中奖位置,
+      gift: false
     }
   }
   componentDidMount () {
+    console.log(this.props)
     this.init()
     // console.log(this)
     // document.getElementsByClassName("luck-unit")[0].className = 'luck-unit active'
@@ -58,7 +60,6 @@ export default class Luck extends Component {
           click: true
         })
       })
-      
       return false
     }
   }
@@ -91,6 +92,7 @@ export default class Luck extends Component {
 				// }else {
 				// 	index = 5
         // }
+
 				this.setState({
           prize: index
         })//最终中奖位置
@@ -115,14 +117,26 @@ export default class Luck extends Component {
       })
 		}
 		return false
-	}
+  }
+  clickMe () {
+    this.setState({
+      gift: !this.state.gift
+    })
+  }
   render() {
+    // let ifgift
+    // if (this.state.gift) {
+    //   ifgift = (
+    //     <img src= {require('../../assest/images/gift.png')} />
+    //   )
+    // }  
+    // }
     return (
       <div className="shanDeng">
-        <div class='actime'>活动时间：2018.09.17-2018.10.10</div>
-        <div class='num'></div>
+        <div className='actime'>活动时间：2018.09.17-2018.10.10</div>
+        <div className='num'><span>您今天的剩余次数：2</span></div>
         <div id="luck">
-          <table style={{borderSpacing: '.7rem .7rem'}}>
+          <table>
             <tbody>
               <tr>
                 <td className="luck-unit luck-unit-0">一等奖</td>
@@ -131,7 +145,7 @@ export default class Luck extends Component {
               </tr>
               <tr>
                 <td className="luck-unit luck-unit-7">四等奖</td>
-                <td className="cjBtn" id="btn" onClick={this.start.bind(this)}/>
+                <td className="cjBtn" id='cjBtn' onClick={this.start.bind(this)}><div>立即抽奖</div> </td>
                 <td className="luck-unit luck-unit-3">五等奖</td>
               </tr>
               <tr>
@@ -139,9 +153,19 @@ export default class Luck extends Component {
                 <td className="luck-unit luck-unit-5">七等奖</td>
                 <td className="luck-unit luck-unit-4">八等奖</td>
               </tr>
-          </tbody>
-        </table>
-      </div>
+            </tbody>
+          </table>
+        </div>
+        <div className='btnbox'>
+          <div className={this.state.gift ? 'have btn' : 'btn'} onClick={this.clickMe.bind(this)}>
+            <img src={this.state.gift ? require('../../assest/images/gift.png') : require('../../assest/images/nogift.png')}/>
+            <span>我的奖品</span>
+          </div>
+          <div className='btn'>
+            <img src={require('../../assest/images/shareicon.png')} />
+            <span>分享给好友</span>
+          </div>
+        </div>
     </div>
     )
   }

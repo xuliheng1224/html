@@ -1,0 +1,118 @@
+
+.shanDeng {
+  width: 750px;
+  height: 2113px;
+  background-size: 100%;
+  background: url('../../assest/images/bg.png') no-repeat 100%;
+  padding-top: 332px;
+}
+.actime{
+  font-size:25px;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,213,145,1);
+  line-height:33px;
+  text-align: center;
+  margin-bottom: 31px;
+}
+.num{
+  margin: 0 auto;
+  width:305px;
+  height:78px;
+  padding-top:11px;
+  text-align: center;
+  font-size:25px;
+  font-family:MicrosoftYaHei;
+  color:rgba(255,255,255,1);
+  background: url('../../assest/images/num.png') no-repeat 100%;
+}
+#btn .cjBtn,.shanDeng .active,.shanDeng td{
+  width: 166px;
+  height: 166px;
+  background-repeat: no-repeat;
+}
+
+#cjBtn.cjBtn{
+  background-image: url('../../assest/images/draw.png');
+  background-size: 100% 100%;
+}
+#cjBtn.cjBtn div{
+  margin: 0 auto;
+  width:95px;
+  height:95px;
+  font-size:42px;
+  font-family:SourceHanSansCN-Bold;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  line-height:47px;
+  letter-spacing:5px;
+}
+#luck {
+  width:690px;
+  height:628px;
+  padding-top: 78px;
+  margin: 0 auto;
+  background: url('../../assest/images/ninepalace.png') no-repeat 0 -21px;
+  background-size: 100% 100%;
+}
+
+#luck .active{
+  background-image: url('../../assest/images/check.png');
+}
+.shanDeng td{
+  text-align: center;
+  background-image: url('../../assest/images/cell.png');
+  background-size: 100% 100%;
+}
+.shanDeng table{
+  margin: 0 auto;
+  margin-top:-30px;
+  /* table-layout: fixed; */
+  border-collapse:separate;
+  border-spacing:14px;
+}
+.btnbox{
+  display: flex;
+}
+.btn{
+  width:291px;
+  height:97px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+.btn img{
+  width:40px;
+  height:40px;
+  margin-left: 46px;
+  margin-right: 25px;
+  margin-top:-4px;
+}
+.btn:nth-child(2) img{
+  width:40px;
+  height:40px;
+  margin-left: 29px;
+  margin-right: 23px;
+  margin-top:0;
+}
+.btn:nth-child(1){
+  font-size:32px;
+  font-family:MicrosoftYaHei;
+  color:rgba(158,158,158,1);
+  background: url('../../assest/images/mine.png') no-repeat;
+  background-size: 100%;
+  margin: 0 57px;
+}
+.btn:nth-child(2){
+  font-size:32px;
+  font-family:MicrosoftYaHei;
+  color:rgba(254,87,70,1);
+  background: url('../../assest/images/share.png') no-repeat;
+  background-size: 100%;
+}
+.have.btn {
+  font-size:32px;
+  font-family:MicrosoftYaHei;
+  color:rgba(254,87,70,1);
+  background: url('../../assest/images/share.png') no-repeat;
+  background-size: 100%;
+}

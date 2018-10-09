@@ -1,0 +1,12 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-runtime",
+    ["import", { "libraryName": "ant-mobile", "libraryDirectory": "lib"}, "ant-mobile"]
+  ]
+}

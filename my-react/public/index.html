@@ -20,22 +20,21 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <link rel="stylesheet" href="../src/static/flexible/flexible.css">
+    <script src="../src/static/flexible/flexible.js"></script>
+    <script>
+      window.addEventListener(('orientationchange' in window ? 'orientationchange' : 'resize'), (function() {
+				function c() {
+					var d = document.documentElement;
+					var cw = d.clientWidth || 750;
+					d.style.fontSize = 40 * (cw / 750) + "px"
+				}
+				c()
+				return c
+			})(), false)
+    </script>
   </head>
   <body>
-    <script>
-      (function (doc, win) {
-        var docEl = doc.documentElement,
-            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-            recalc = function () {
-                var clientWidth = docEl.clientWidth
-                if (!clientWidth) return
-                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px'
-            };
-        if (!doc.addEventListener) return
-            win.addEventListener(resizeEvt, recalc, false)
-            doc.addEventListener('DOMContentLoaded', recalc, false)
-        })(document, window)
-    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.

@@ -2,6 +2,6 @@
 # lotter-admin
 
 
-> A Vue.js project
+> A React.js project
 
 

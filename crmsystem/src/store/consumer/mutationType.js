@@ -1,8 +1,0 @@
-export const USERLIST = 'USERLIST'
-export const USERINFOS = 'USERINFOS'
-export const ANTENATAL = 'ANTENATAL'
-export const SCHOOLS = 'SCHOOLS'
-export const TANGS = 'TANGS'
-export const BC = 'BC'
-export const SUGARS = 'SUGARS'
-export const PARTUMS = 'PARTUMS'

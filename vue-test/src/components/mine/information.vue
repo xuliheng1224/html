@@ -11,52 +11,45 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import { mapGetters } from "vuex";
 
-    export default {
-        data(){
-            return{
-                info:'',
-                msg:''
-            }
-        },
-        methods:{
-            add(){
-                if(this.msg){
-
-                    this.$store.dispatch('add' , this.msg)
-                }
-                
-            },
-            modify(){
-                this.$store.dispatch('modify','small')
-            }
-        },
-        watch:{
-             list(to,from){
-                console.log(to)
-            }
-        },
-        mounted(){
-            this.info = this.$route.params.id
-            // this.$nextTick(()=>{
-            //    console.log(this.msg=this.$store.getters.getInfo)
-            // })
-            // console.log(this.getInfo.name)
-            // console.log(this.getInfo.age)
-            // console.log(this.list)   
-             
-        },
-        computed:{
-            ...mapGetters([
-                'getInfo',
-                'list',
-                'size'
-            ])
-        }
+export default {
+  data() {
+    return {
+      info: "",
+      msg: ""
+    };
+  },
+  methods: {
+    add() {
+      if (this.msg) {
+        this.$store.dispatch("add", this.msg);
+      }
+    },
+    modify() {
+      this.$store.dispatch("modify", "small");
     }
+  },
+  watch: {
+    list(to, from) {
+      console.log(to);
+    }
+  },
+  mounted() {
+    this.info = this.$route.params.id;
+    console.log(this.info)
+    // this.$nextTick(()=>{
+    //    console.log(this.msg=this.$store.getters.getInfo)
+    // })
+    // console.log(this.getInfo.name)
+    // console.log(this.getInfo.age)
+    // console.log(this.list)
+  },
+  computed: {
+    ...mapGetters(["getInfo", "list", "size"])
+  }
+};
 </script>
 
 <style scoped>
-
 </style>

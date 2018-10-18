@@ -6,10 +6,10 @@ export default class First extends  Component {
     super(props)
     this.state = {
       books : [
-        { bookname: '1', time: '一号',},
+        { bookname: '1', time: '一号'},
         { bookname: '2', time: '二号'},
         { bookname: '3', time: '三号'},
-        {bookname: '4', time: '四号'}
+        { bookname: '4', time: '四号'}
       ]
     }
   }

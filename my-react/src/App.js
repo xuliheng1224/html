@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Link} from 'react-router-dom'
+import Add from './pages/add'
 
 // import {getQueryString} from '../common/util'
 
@@ -42,10 +43,12 @@ class App extends Component {
     console.log(this,a,b,e)
   }
   render() {
+    const id = 3
     // console.log(this.props)
     return (
       <div>
         app页面
+        <Add haha={id}></Add>
         <p onClick={this.clickMe.bind(this,2,4)}>测试一下点击时间都是传的啥</p>
         <hr/>
         <ul>

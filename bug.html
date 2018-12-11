@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
 </head>
+
 <body>
-    <div>
-        <p>
-        		1.append添加的元素事件无效？
-            原因：  因为append中的节点是在整个文档加载后才添加的，页面并不会为未来的元素初始化添加点击事件，所以使用这种方式动态添加的节点中的点击事件没有生效。
+	<div>
+		<p>
+			1.append添加的元素事件无效？
+			原因： 因为append中的节点是在整个文档加载后才添加的，页面并不会为未来的元素初始化添加点击事件，所以使用这种方式动态添加的节点中的点击事件没有生效。
 			解决方法： 后来用事件委托的方法解决
-			
+
 			2.华为自带的浏览器不支持es6；
-			
+
 			3.移动端调试工具vConsole;
-			
+
 			4.移动端真机页面调试工具 spy-debugger
 			安装
 			Windows 下
@@ -35,25 +37,25 @@
 			第五步：用手机浏览器访问你要调试的页面即可。
 
 			5.vue的computed 里面不能用this
-			
-			6.window.print() 打印页面后原来的点击事件都会失效，可以使用
-			  var newstr = document.getElementById('bigcard').innerHTML
-		      document.body.innerHTML = newstr
-		      window.print()
-		      window.location.reload()
-		     
-			7. 微信环境授权哈希路由#后面的路由不解析  vue中
-		      export default new Router({
-			  mode: 'history',
-			  routes: [{
-			      path: '/',
-			      name: 'Home',
-			      component: Home
-			    }]
-            8.vue 图片不显示
-                1、在data 里写入  logo: require('../assets/images/logo.png')
 
-                2、在模板中写入 <img :src="logo">
+			6.window.print() 打印页面后原来的点击事件都会失效，可以使用
+			var newstr = document.getElementById('bigcard').innerHTML
+			document.body.innerHTML = newstr
+			window.print()
+			window.location.reload()
+
+			7. 微信环境授权哈希路由#后面的路由不解析 vue中
+			export default new Router({
+			mode: 'history',
+			routes: [{
+			path: '/',
+			name: 'Home',
+			component: Home
+			}]
+			8.vue 图片不显示
+			1、在data 里写入 logo: require('../assets/images/logo.png')
+
+			2、在模板中写入 <img :src="logo">
 			9.背景图片
 			position: absolute;
 			left:0;
@@ -63,8 +65,13 @@
 			10.禁止input 输入法弹出
 			pointer-events: none;
 			11.h5的分享页面只能h5页面(微信内部可以)
-        </p>
-        
-    </div>
+
+			12. antd select 下拉框分离 getPopupContainer={triggerNode => triggerNode.parentNode}
+
+			13. 获取 scheduling 后面的参数 const moduleId = parseInt(location.href.split('scheduling/')[1], 10);
+		</p>
+
+	</div>
 </body>
+
 </html>

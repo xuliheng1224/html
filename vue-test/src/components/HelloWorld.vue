@@ -1,10 +1,10 @@
 <template>
   <div class="hello">
-    <input type="button" value="进去mine" @click='mine'>
+    <input type="button" value="进去mine" @click="mine">
     <ul>
-      <li  v-for="(item,index) in list" :key="index" >{{item}}</li>
+      <li v-for="(item,index) in list" :key="index">{{item}}</li>
     </ul>
-    <input type="button" value="点击增加list" @click='push'>   
+    <input type="button" value="点击增加list" @click="push">
     <h2>{{val|add}}</h2>
     <input type="text" v-focus style="border:2px solid #000;">
     <div>{{info}}</div>
@@ -12,11 +12,9 @@
     <h4 ref="p4" class="p3">ref的测试</h4>
     <h1 @click="remove">{{number}}</h1>
     <v-header>
-      <div >
-        这是内容啊
-      </div>
+      <div @click="sao">这是内容啊</div>
     </v-header>
-    <child parentmsg="fromfa" @toParent='accept'></child>
+    <child parentmsg="fromfa" @toParent="accept"></child>
     <button @click="choose='detail'">切换到详情页</button>
     <button @click="choose='dingdan'">切换到订单页</button>
     <component :is="choose"></component>
@@ -24,94 +22,115 @@
 </template>
 
 <script>
-import vHeader from './header';
-import detail from './detail';
-import dingdan from './dingdan';
-import child from './child';
-import Vue from 'vue'
+import vHeader from "./header";
+import detail from "./detail";
+import dingdan from "./dingdan";
+import child from "./child";
+import Vue from "vue";
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "HelloWorld",
+  data() {
     return {
       // parentmsg:'fromfa',
-      choose:'detail',
-      msg: 'Welcome to Your Vue.js App',
+      choose: "detail",
+      msg: "Welcome to Your Vue.js App",
       val: 24,
-      number:8,
-      titel:'sdsdsd',
-      list:[1,2,3,4,5,6]
-    }
-
+      number: 8,
+      titel: "sdsdsd",
+      list: [1, 2, 3, 4, 5, 6]
+    };
   },
-  components:{
+  components: {
     vHeader,
     detail,
     dingdan,
     child
   },
-  methods:{
-    mine(){
-      var b = new Base64();  
-      var id = b.encode('mine')
+  methods: {
+    sao() {
+      if (window.cordova && window.cordova.plugins.barcodeScanner) {
+        window.cordova.plugins.barcodeScanner.scan(
+          result => {
+            if (result && result.text) {
+              alert(result.text);
+            }
+          },
+          err => {
+            console.log(err);
+          },
+          {
+            prompt: "", // 提示文字
+            resultDisplayDuration: 0 // 扫描成功文字停留时间
+          }
+        );
+      }
+    },
+    mine() {
+      var b = new Base64();
+      var id = b.encode("mine");
       console.log(id);
       this.$router.push({
-        path:"/mine",
-        query:{
-          id:id
+        path: "/mine",
+        query: {
+          id: id
         }
-      })
-    },
-    push(){
-      this.list.push(this.list.length+1)
-      Vue.nextTick(function(){
-          alert('数据已经更新')
       });
-      this.$nextTick(function(){
-          alert('v-for渲染已经完成')
-      })
     },
-    remove(){
+    push() {
+      this.list.push(this.list.length + 1);
+      Vue.nextTick(function() {
+        alert("数据已经更新");
+      });
+      this.$nextTick(function() {
+        alert("v-for渲染已经完成");
+      });
+    },
+    remove() {
       this.number = 0;
     },
-    accept(data){
-      console.log(data)
-    }    
-  },
-  filters:{
-    add(val){
-      return val+5;
+    accept(data) {
+      console.log(data);
     }
   },
-  directives:{
-    focus(el){
-      el.classList.add('active')
+  filters: {
+    add(val) {
+      return val + 5;
     }
   },
-  computed:{
-    info(){
-      return this.msg.split('').reverse().join('')
+  directives: {
+    focus(el) {
+      el.classList.add("active");
     }
   },
-  watch:{
-    number(to,from){
-      if(to === 0){
-        console.log('ffdf')
+  computed: {
+    info() {
+      return this.msg
+        .split("")
+        .reverse()
+        .join("");
+    }
+  },
+  watch: {
+    number(to, from) {
+      if (to === 0) {
+        console.log("ffdf");
       }
     }
   },
-  created(){
-    let root = process.env
+  created() {
+    let root = process.env;
   },
-  mounted(){
-   this.$refs.p3.className = "p33333"
-   console.log(this)
+  mounted() {
+    this.$refs.p3.className = "p33333";
+    console.log(this);
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 ul {

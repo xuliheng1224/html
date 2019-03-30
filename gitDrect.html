@@ -1,54 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
+
 <body>
-     <div>
-         git clone -b master ... //克隆代码
-         git add . // 
-         git commit -m "描述" //
-         git pull origin master //拉取master上的代码
-         git push origin master //把本地代码推送到远程master上
-         git log //查看记录
-         git reset --hard HEAD^ //回到上一个版本
-         git reset --hard HEAD^^ //回到上上一个版本
-         git reset --hard commit.id //回到具体的版本
-         git reflog //记录你的每一次命令
-         cat index.html //查看index。html的内容 
-         git checkout -b dev //创建并切换到dev分支上
-         git branch -a //查看当前所有分支
-         git checkout dev //切换到dev分支上
-         git push origin --delete dev //删除远程dev分支
-         git branch -D dev //删除本地dev分支
-         git merge dev //合并dev分支到当前分支
-     </div>
-     <div>
-            版本回退
-            git log //查看提交的历史
-            git log --pretty=oneline //如果嫌上面的输出信息过多可以使用这条（只输出版本号）
-            git reset --hard HEAD^ //回到上个版本，
-            git reset --hard HEAD^^ //是上上个版本
-            
-            提交到远程仓库
-              接下来如果你直接提交会发现提交不了, 说远端做了更改需要先pull一下, 如果pull那就又回到最新版本了，相当于没回退。 
-              思路：我们可以新建一个分支temp，然后把回退后的代码提交到temp分支上暂存，然后删除master主分支，新建一个master分支，提交现有代码到master上。
-            
-            /*1.新建分支*/
-            git checkout -b temp              //新建分支并切换到temp分支
-            git push origin temp:temp         //将代码push到temp分支
-            /*2.删除主分支*/
-            git push origin --delete master   //删除远端主分支
-            git branch -d master              //删除本地主分支
-            /*3.新建主分支*/
-            git checkout -b master            //新建主分支并切换到主分支
-            git push origin master            //提交主分支
-            /*4.删除暂存分支*/
-            git branch -d temp
-            git push origin --delete temp
-     </div>
+  <div>
+    git clone -b master ... //克隆代码
+    git add . //
+    git commit -m "描述" //
+    git pull origin master //拉取master上的代码
+    git push origin master //把本地代码推送到远程master上
+    git log //查看记录
+    git reset --hard HEAD^ //回到上一个版本
+    git reset --hard HEAD^^ //回到上上一个版本
+    git reset --hard commit.id //回到具体的版本
+    git reflog //记录你的每一次命令
+    cat index.html //查看index。html的内容
+    git checkout -b dev //创建并切换到dev分支上
+    git branch -a //查看当前所有分支
+    git checkout dev //切换到dev分支上
+    git push origin --delete dev //删除远程dev分支
+    git branch -D dev //删除本地dev分支
+    git merge dev //合并dev分支到当前分支
+    git stash会把所有未提交的修改（包括暂存的和非暂存的）都保存起来，用于后续恢复当前工作目录。
+    比如下面的中间状态，通过git stash命令推送一个新的储藏，当前的工作目录就干净了。
+    git stash pop命令恢复之前缓存的工作目录
+    git stash apply命令，将缓存堆栈中的stash多次应用到工作目录中，但并不删除stash拷贝
+  </div>
+  <div>
+    版本回退
+    git log //查看提交的历史
+    git log --pretty=oneline //如果嫌上面的输出信息过多可以使用这条（只输出版本号）
+    git reset --hard HEAD^ //回到上个版本，
+    git reset --hard HEAD^^ //是上上个版本
+
+    提交到远程仓库
+    接下来如果你直接提交会发现提交不了, 说远端做了更改需要先pull一下, 如果pull那就又回到最新版本了，相当于没回退。
+    思路：我们可以新建一个分支temp，然后把回退后的代码提交到temp分支上暂存，然后删除master主分支，新建一个master分支，提交现有代码到master上。
+
+    /*1.新建分支*/
+    git checkout -b temp //新建分支并切换到temp分支
+    git push origin temp:temp //将代码push到temp分支
+    /*2.删除主分支*/
+    git push origin --delete master //删除远端主分支
+    git branch -d master //删除本地主分支
+    /*3.新建主分支*/
+    git checkout -b master //新建主分支并切换到主分支
+    git push origin master //提交主分支
+    /*4.删除暂存分支*/
+    git branch -d temp
+    git push origin --delete temp
+  </div>
 </body>
+
 </html>

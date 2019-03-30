@@ -91,8 +91,8 @@
 			15.正则
 			<script>
 				var reg = /^1[345678][0-9]{9}$/g;
-				console.log(reg.test(15328044636));// true
-				console.log(reg.test(15328044636));// false
+				console.log(reg.test(15328044636));
+				console.log(reg.test(15328044636));
 				//  这是因为正则reg的g属性，设置的全局匹配。RegExp有一个lastIndex属性，来保存索引开始位置。
 				//上面的问题，第一次调用的lastIndex值为0，到了第二次调用，值变成了11。
 

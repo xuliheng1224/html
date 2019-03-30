@@ -2,7 +2,7 @@
   <div class="hello">
     <input type="button" value="进去mine" @click="mine">
     <ul>
-      <li v-for="(item,index) in list" :key="index">{{item}}</li>
+      <li v-for="(item,index) in list" :key="index" @click="up(index)">{{item}} 上移</li>
     </ul>
     <input type="button" value="点击增加list" @click="push">
     <h2>{{val|add}}</h2>
@@ -47,6 +47,17 @@ export default {
     child
   },
   methods: {
+    up(index){
+      console.log(index);
+
+      if(index === 0){
+        this.list.push(this.list[0])
+        this.list.splice(0,1)
+        return
+      }
+      this.list.splice(index+1, 0, this.list[index-1]);
+      this.list.splice(index-1, 1);
+    },
     sao() {
       if (window.cordova && window.cordova.plugins.barcodeScanner) {
         window.cordova.plugins.barcodeScanner.scan(
@@ -77,12 +88,27 @@ export default {
       });
     },
     push() {
-      this.list.push(this.list.length + 1);
-      Vue.nextTick(function() {
-        alert("数据已经更新");
-      });
-      this.$nextTick(function() {
-        alert("v-for渲染已经完成");
+      // this.list.push(this.list.length + 1);
+      // Vue.nextTick(function() {
+      //   alert("数据已经更新");
+      // });
+      // this.$nextTick(function() {
+      //   alert("v-for渲染已经完成");
+      // });
+      let comment = [{path: '../detail.vue'}];
+      this.$router.options.routes.push(
+        {
+          path: '/mine/detail',
+          name: '/mine/detail',
+          component: r => require.ensure([], () => r(require('../components/mine/information')), 'mine')
+        }
+      )
+      this.$router.addRoutes(this.$router.options.routes);
+      this.$router.push({
+        path: "/mine/detail",
+        query: {
+          id: 2
+        }
       });
     },
     remove() {
@@ -118,6 +144,8 @@ export default {
     }
   },
   created() {
+    console.log(this.$router.options.routes);
+
     let root = process.env;
   },
   mounted() {

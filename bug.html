@@ -100,6 +100,33 @@
 				console.log(reg.lastIndex, reg.test(15328044636));// 0 true
 				console.log(reg.lastIndex, reg.test(15328044636));// 11 false
 			</script>
+			16.发版缓存问题
+			<meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate" />
+			<meta http-equiv="pragma" content="no-cache" />
+			<meta http-equiv="Expires" content="0" />
+			1、Expires(期限)
+			说明：可以用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。
+			用法：
+
+			＜meta http-equiv="Expires" content="Wed, 20 Jun 2007 22:33:00 GMT"＞
+			　　注意：必须使用GMT的时间格式。
+
+			2、Pragma(cache模式)
+
+			说明：是用于设定禁止浏览器从本地机的缓存中调阅页面内容，设定后一旦离开网页就无法从Cache中再调出
+			用法：
+
+			<meta http-equiv="pragma" content="no-cache" />
+			3、Refresh(刷新)
+
+			说明：自动刷新并指向新页面。
+			用法：
+
+			＜meta http-equiv="refresh" content="2; URL=http://www.net.cn/"＞
+
+			4、清除缓存（再访问这个网站要重新下载！）
+
+			<meta http-equiv="cache-control" content="no-cache">
 		</p>
 
 	</div>

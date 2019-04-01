@@ -1,4 +1,4 @@
-//vue项目的搭建
+//vue项目的搭建  https://segmentfault.com/a/1190000016344599 vue相关问题
 // 1.安装node.js
 // 2.npm install -g cnpm --registry=https://registry.npm.taobao.org
 // 3.cnpm install -g vue-cli
@@ -18,13 +18,13 @@
 //   }
 // }
 // 请求的url 是'/api/....'
-  // axios 的封装
+// axios 的封装
 import axios from 'axios'
 import cookie from 'js-cookie'
-export function fetch (options, _this) {
+export function fetch(options, _this) {
     return new Promise((resolve, reject) => {
         if (_this) {
-            _this.$store.dispatch('loadingState', {load: true})
+            _this.$store.dispatch('loadingState', { load: true })
         }
         var adminInfo = cookie.get('adminInfo') ? JSON.parse(cookie.get('adminInfo')) : ''
         var schoolInfos = cookie.get('schoolInfos') ? JSON.parse(cookie.get('schoolInfos')) : ''
@@ -74,8 +74,8 @@ fetch({
     method: 'get', // post ,data:{}
     params: {},
     responseType: '',
-    success: (res) => {},
-    fail: (err) => {}
+    success: (res) => { },
+    fail: (err) => { }
 
 }, this)
 //1.关于vue的路由   在main.js中使用
@@ -84,15 +84,15 @@ import VueRouter from 'vue-router';
 import routes from '...';
 const router = new VueRouter({
     routes: [
-        { 
-          path: '',
-          name:'', 
-          component: '', 
+        {
+            path: '',
+            name: '',
+            component: '',
         }
     ]
-  })
+})
 
-  Vue.use(VueRouter)
+Vue.use(VueRouter)
 
 // 2.关于vue的传参（query,params)
 //     query是在url后面介个‘？’传参相当于ajax的get
@@ -100,18 +100,18 @@ const router = new VueRouter({
 //     如果你使用params传参，当页面刷新的时候会获取不到传入的值
 //传
 this.$router.push({
-    path:'',//或者name都行
-    query:{
-        id:66
+    path: '',//或者name都行
+    query: {
+        id: 66
     }
 })
 //取
 this.$route.query.id
 
 this.$router.push({
-    name:'',//用path取不到传入的值
-    params:{
-        id:555
+    name: '',//用path取不到传入的值
+    params: {
+        id: 555
     }
 })
 this.$route.params.id
@@ -119,28 +119,28 @@ this.$route.params.id
 // 3.关于vue的请求 
 
 import axios from 'axios'
-Vue.prototype.$http=axios;
+Vue.prototype.$http = axios;
 
 import VueResource from 'vue-resource'
 Vue.use(VueResource);
 
 let postData = {
-    'companyCode':'tur',
-    'userName':'123456789123456789',
-    'password':'123456'
+    'companyCode': 'tur',
+    'userName': '123456789123456789',
+    'password': '123456'
 }
 
 //get 请求传参
-this.$http.get(url,{params:postData}).then((res)=>{
+this.$http.get(url, { params: postData }).then((res) => {
 
-}).catch((err)=>{
+}).catch((err) => {
 
 })
 
 //post传参
-this.$http.post("",postData).then((res) =>{
+this.$http.post("", postData).then((res) => {
     console.log(res);
-}).catch( (error)=> {
+}).catch((error) => {
     console.log(error);
 })
 
@@ -285,7 +285,7 @@ methods:{
 // <ul id="demo">
 //     <li v-for="(index,item) in list" :key="index">{{item}}</div>
 // </ul>
- 
+
 // new Vue({
 //     el:'#demo',
 //     data:{
@@ -319,9 +319,9 @@ const detail = r => require.ensure([], () => r(require('../components/list/detai
 const router = new Router({
     routes: [
         {
-           path: '/list/blog',
-           component: detail,
-           name: 'blog'
+            path: '/list/blog',
+            component: detail,
+            name: 'blog'
         },
         ...login,
         ...mine
@@ -330,7 +330,7 @@ const router = new Router({
 
 //12.vue传参加密；
 
-var b = new Base64();  
+var b = new Base64();
 //加密
 var id = b.encode('mine')
 
@@ -363,10 +363,10 @@ main.js
 import store from './components/store/store'
 new Vue({
     el: '#app',
-    router,store,
+    router, store,
     components: { App },
     template: '<App/>'
-  })
+})
 
 Store.js
 import Vue from 'vue';
@@ -388,14 +388,14 @@ export default store;
 
 State.js
 const state = {
-    getInfo:{
-        name:'xuliheng',
-        age:24
+    getInfo: {
+        name: 'xuliheng',
+        age: 24
     },
-    size:'big',
-    list:[
-        {text:"111"},
-        {text:"222"}
+    size: 'big',
+    list: [
+        { text: "111" },
+        { text: "222" }
     ]
 }
 
@@ -405,13 +405,13 @@ export default state;
 getters.js
 
 const getters = {
-    getInfo(state){
+    getInfo(state) {
         return state.getInfo
     },
-    list(state){
+    list(state) {
         return state.list
     },
-    size(state){
+    size(state) {
         return state.size;
     }
 
@@ -422,25 +422,25 @@ export default getters;
 actions.js
 
 const actions = {
-    add({commit},msg){
-        commit('add',msg)
+    add({ commit }, msg) {
+        commit('add', msg)
     },
-    modify({commit},size){
-        commit('modify',size)
+    modify({ commit }, size) {
+        commit('modify', size)
     }
-} 
+}
 
 export default actions;
 
 mutations.js
 
 const mutations = {
-    modify(state,size){
-        state.size=size;
+    modify(state, size) {
+        state.size = size;
     },
-    add(state,msg){
-        let a = {text:msg}
-         state.list.push(a);
+    add(state, msg) {
+        let a = { text: msg }
+        state.list.push(a);
     }
 }
 
@@ -448,8 +448,8 @@ export default mutations;
 
 
 //取值
-import {mapGetters} from 'vuex';
-computed:{
+import { mapGetters } from 'vuex';
+computed: {
     //  ...mapGetters([
     //     'getInfo',
     //     'list',
@@ -459,13 +459,13 @@ computed:{
 
 
 //存
-methods:{
+methods: {
     // add(){
-        // if(this.msg){
+    // if(this.msg){
 
-        //     this.$store.dispatch('add' , this.msg)
-        // }
-        
+    //     this.$store.dispatch('add' , this.msg)
+    // }
+
     // },
     // modify(){
     //     this.$store.dispatch('modify','small')
@@ -488,37 +488,37 @@ import login from './login' //路由模块
 
 Vue.use(Vuex)
 export default new Vuex.Store({
-	modules: {
-		login
-	}
+    modules: {
+        login
+    }
 })
 // login模块下
 // index.js
 import * as types from './mutationType'
 import * as types from './actions'
 const state = () => ({
-	info: {}
+    info: {}
 })
 const mutations = {
-	[types.INFO] (state, data) {
-		state.info = data
-	}
+    [types.INFO](state, data) {
+        state.info = data
+    }
 }
 export default {
-	state, actions, mutations
+    state, actions, mutations
 }
 // mutationType.js
 export const INFO = 'INFO'
 // actions.js
 import * as types from './mutationType'
 import { fetch } from '../common/fetch'
-export const getInfo = ({commit}, op) => {
-	return fetch({
-		url: '',
-		success: (res) => {
-			commit('INFO', op)
-		}
-	})
+export const getInfo = ({ commit }, op) => {
+    return fetch({
+        url: '',
+        success: (res) => {
+            commit('INFO', op)
+        }
+    })
 }
 
 //存入 op传this进去

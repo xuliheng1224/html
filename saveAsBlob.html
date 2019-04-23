@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button onclick="downloadJson(students)">导出生成json文件</button>
+  <button onclick="downloadText(students)">导出生成文本</button>
+</body>
+
+</html>
+
+<script>
+  var Flock = function (n) {
+    this.seagulls = n;
+  };
+
+  Flock.prototype.conjoin = function (other) {
+    this.seagulls += other.seagulls;
+    return this;
+  };
+
+  Flock.prototype.breed = function (other) {
+    this.seagulls = this.seagulls * other.seagulls;
+    return this;
+  };
+
+  var flock_a = new Flock(4);
+  var flock_b = new Flock(2);
+  var flock_c = new Flock(0);
+  var result = flock_a.conjoin(flock_c).breed(flock_b).conjoin(flock_a.breed(flock_b)).seagulls;
+  // console.log(result);
+  var a = {
+    age: 22
+  }
+
+  // 冻结对象，只是一层
+  var immutableState = Object.freeze({ a });
+  a.age = 33;
+  // console.log(immutableState, a);
+</script>
+
+<script src="https://cdn.bootcss.com/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+<script>
+  var students = [{
+    "name": "小明1",
+    "age": "6",
+    "sex": "男",
+    "height": "60"
+  }, {
+    "name": "小明2",
+    "age": "7",
+    "sex": "男",
+    "height": "70"
+  }, {
+    "name": "小明3",
+    "age": "8",
+    "sex": "男",
+    "height": "80"
+  }];
+  // 导出生成json文件
+  function downloadJson(data) {
+    var blob = new Blob([JSON.stringify(data)], { type: "" });
+    saveAs(blob, "hello.json");
+  }
+  // 导出生成文本
+  function downloadText(data) {
+    var blob = new Blob([JSON.stringify(data)], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, "hello.txt");
+  }
+</script>

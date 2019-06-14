@@ -18,6 +18,17 @@
 		// npm config set registry https://registry.npm.taobao.org/
 		// npm config delete registry 恢复原样。
 
+		let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+		let newlist = []
+		for (let i = 0; i < 6; i++) {
+			let length = list.length
+			let i = Math.round(Math.random() * length)
+			list.splice(i - 1, 1);
+			// delete list[i - 1]
+			newlist.push(list[i])
+		}
+		newlist.push(Math.round(Math.random() * 16))
+		document.write(newlist.join(","))
 		// 双向绑定
 		var obj = {}
 		Object.defineProperty(obj, 'txt', {
@@ -56,16 +67,16 @@
 		console.log(a, b);
 
 		// 2.除了递归，我们还可以借用JSON对象的parse和stringify
-		function deepClone(obj) {
-			let _obj = JSON.stringify(obj),
-				objClone = JSON.parse(_obj);
-			return objClone
-		}
-		let a = [0, 1, [2, 3], 4],
-			b = deepClone(a);
-		a[0] = 1;
-		a[2][0] = 1;
-		console.log(a, b);
+		// function deepClone(obj) {
+		// 	let _obj = JSON.stringify(obj),
+		// 		objClone = JSON.parse(_obj);
+		// 	return objClone
+		// }
+		// let a = [0, 1, [2, 3], 4],
+		// 	b = deepClone(a);
+		// a[0] = 1;
+		// a[2][0] = 1;
+		// console.log(a, b);
 	</script>
 	<div
 		style="width:0px;height:0px;border-top:100px solid red;border-left:150px solid transparent;border-bottom:50px solid transparent;border-right:150px solid transparent;">
@@ -82,9 +93,9 @@
 	<script>
 		// getElementsByTagName这个函数的返回值是个数组,所以就要使用[0]来取其中的一个
 		// 添加 单个 class:
-		dom.classList.add("className1")
+		// dom.classList.add("className1")
 		// 移除一个类:
-		dom.classList.remove("className1")
+		// dom.classList.remove("className1")
 		//移动端返回上一页，页面刷新
 		function myFunction(event) {
 			//alert("页面是否从浏览器缓存中加载? " + event.persisted);

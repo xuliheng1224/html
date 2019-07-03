@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  1.JS有哪些手段可以实现继承
+  借助构造函数来实现类的继承（无法继承原型对象上的属性）。
+  借助原型链来实现继承(引用类型的属性被所有实例共享)
+  构造函数与原型链组合实现继承
+
+  2.用纯JS实现，点击一个列表时，输出对应的索引（不能用JQuery哦）
+
+  3.说说JS的内存机制及垃圾回收机制
+  内存机制:
+  javascript中的变量分为两种，原始值和引用值。原始值指的是原始数据类型的值，比如undefined, null, number, string,
+  boolean类型所表示的值。引用值指的是复合数据类型的值，即Object,Function, Array等。
+  原始值和引用值存储在内存中的位置分别为栈和堆。原始值是存储在栈中的简单数据段，他们的值直接存储在变量访问的位置。引用值是存储在堆中的对象.
+  垃圾回收机制:
+  就是释放那些不再使用的变量
+  标记清除。工作原理：是当变量进入环境时，将这个变量标记为“进入环境”。当变量离开环境时，则将其标记为“离开环境”。标记“离开环境”的就回收内存。
+  引用计数。工作原理：跟踪记录每个值被引用的次数。声明了一个变量并将一个引用类型的值赋值给这个变量，这个引用类型值的引用次数就是1。释放引用次数是0的值所占的内存。
+
+  4.实现一个算法，寻找字符串中出现次数最少的、并且首次出现位置最前的字符,如"cbaacfdeaebb"，符合要求的是"f"，因为他只出现了一次（次数最少）。并且比其他只出现一次的字符（如"d"）首次出现的位置最靠前
+
+  5.NodeJS的优缺点
+  1.优点：高并发(最重要的优点)
+  适合环境：适合I/O密集型应用
+  缺点:不适合CPU密集型应用,带来 的主要挑战是由于js单线程运行事件过长，将会导致CPU不能释放，是的后续I/O无法发起
+  解决方案：分解大型计算任务为多个小型的任务，是的运算能够适时释放，不阻塞I/O调用的发起
+  2.只支持单核CPU，不能充分利用CPU
+  3.可靠性低，一旦某个环节崩溃，整个系统都会崩溃
+  原因：单线程，单进程
+  解决方案：开多个进程，绑定多个端口
+
+  6.http1.0和http1.1及http2.0区别
+  https://www.haorooms.com/post/long_lianjie_websocket
+
+  7.vue-router如何做历史返回提示？
+
+  8.vue-router如何做用户登录权限等？
+</body>
+<script>
+  // 1
+  function Parent1() {
+    this.name = "parent1"
+  }
+  Parent1.prototype.say = function () { };
+  function Child1() {
+    Parent1.call(this)
+    this.type = "child1"
+  }
+  console.log(new Child1()); // {name: "parent1",type: "child1"}
+
+  function Parent2() {
+    this.name = "parent2"
+    this.arr = [1, 2, 3]
+  }
+  function Child2() {
+    this.type = "child2"
+  }
+  Child2.prototype = new Parent2();
+  var child1 = new Child2();
+  var child2 = new Child2()
+  child1.arr.push(4);
+  console.log(child1.arr) // [1,2,3,4]
+  console.log(child2.arr) // [1,2,3,4]
+
+  function Parent3() {
+    this.name = "parent3"
+    this.arr = [1, 2, 3]
+  }
+  function Child3() {
+    Parent3.call(this)
+    this.type = "child3"
+  }
+  Parent3.prototype.say = function () { };
+  Child3.prototype = new Parent3()
+  Child3.prototype = Parent3.prototype
+  Child3.prototype.constructor = Child3
+  var child1 = new Child3()
+  var child2 = new Child3()
+  child1.arr.push(4)
+  console.log(child1)
+  console.log(child1.arr)
+  console.log(child2.arr)
+  console.log(child1 instanceof Child3)
+  console.log(child1 instanceof Child3)
+  console.log(child1.constructor)
+
+  // 2
+  // for (let i = 0, len = lis.length; i < len; i++) {
+  //     lis[i].addEventListener('click', function () {
+  //       console.log(i);
+  //     }, false);
+  //   }
+
+  // for (var i = 0, len = lis.length; i < len; i++) {
+  //     (function (i) {
+  //       lis[i].addEventListener('click', function () {
+  //         console.log(i);
+  //       }, false);
+  //     })(i)
+  //   }
+
+  // 4
+  // var str = "cbaacfdeaebb";
+  // var obj = {}
+  // var arr = [];
+  // for (let i = 0, len = str.length; i < len; i++) {
+  //   obj[str[i]] = obj[str[i]] ? obj[str[i]] + 1 : 1;
+  // }
+  // // 数组中的最小值
+  // var min = Math.min.apply(null, Object.values(obj));
+  // Object.keys(obj).map((v, k) => {
+  //   if (obj[v] == min) {
+  //     arr.push(v);
+  //   }
+  // })
+
+</script>
+
+</html>

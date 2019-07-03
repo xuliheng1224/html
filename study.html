@@ -18,17 +18,17 @@
 		// npm config set registry https://registry.npm.taobao.org/
 		// npm config delete registry 恢复原样。
 
-		let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
-		let newlist = []
+		list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+		newlist = []
 		for (let i = 0; i < 6; i++) {
 			let length = list.length
-			let i = Math.round(Math.random() * length)
-			list.splice(i - 1, 1);
+			let index = Math.round(Math.random() * length)
+			newlist.push(list[index]);
+			list.splice(index, 1);
 			// delete list[i - 1]
-			newlist.push(list[i])
 		}
 		newlist.push(Math.round(Math.random() * 16))
-		document.write(newlist.join(","))
+		newlist.join(",")
 		// 双向绑定
 		var obj = {}
 		Object.defineProperty(obj, 'txt', {

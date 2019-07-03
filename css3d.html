@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>看我</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+    }
+
+    #wrap {
+      width: 150px;
+      height: 200px;
+      position: relative;
+      margin: 100px auto;
+      perspective: 1500px;
+      transform: perspective(1500px);
+    }
+
+    #head {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform-style: preserve-3d;
+      animation: donghua 15s linear 0s infinite;
+      background: url(img/08.jpg);
+      background-size: cover;
+    }
+
+    #head div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      height: 200px;
+      border: 1px solid red;
+      text-align: center;
+      line-height: 100px;
+    }
+
+    #head div:nth-child(1) {
+      transform: rotateY(0deg) translateZ(250px);
+      background: url(img/01.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(2) {
+      transform: rotateY(36deg) translateZ(250px);
+      background: url(img/02.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(3) {
+      transform: rotateY(72deg) translateZ(250px);
+      background: url(img/03.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(4) {
+      transform: rotateY(108deg) translateZ(250px);
+      background: url(img/04.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(5) {
+      transform: rotateY(144deg) translateZ(250px);
+      background: url(img/05.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(6) {
+      transform: rotateY(180deg) translateZ(250px);
+      background: url(img/06.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(7) {
+      transform: rotateY(216deg) translateZ(250px);
+      background: url(img/07.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(8) {
+      transform: rotateY(252deg) translateZ(250px);
+      background: url(img/08.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(9) {
+      transform: rotateY(288deg) translateZ(250px);
+      background: url(img/04.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(10) {
+      transform: rotateY(324deg) translateZ(250px);
+      background: url(img/07.jpg);
+      background-size: cover;
+
+    }
+
+    #head div:nth-child(11) {
+      transform: rotateX(-45deg) rotateY(0) translateZ(250px);
+      background: url(img/07.jpg);
+      background-size: cover;
+
+    }
+
+    @keyframes donghua {
+      0% {
+        transform: rotateX(-10deg) rotateY(360deg)
+      }
+
+      50% {
+        transform: rotateX(-10deg) rotateY(180deg)
+      }
+
+      100% {
+        transform: rotateX(-10deg) rotateY(0deg)
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrap">
+    <div id="head">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+
+</html>

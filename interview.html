@@ -47,11 +47,6 @@
 </body>
 <script>
   // 1
-  // 使用 prototype的好处是不会额外产生内存，
-  // 所有实例化后的对象都会从原型上继承这个方法。
-  // 也就是需要一个子类拥有父类的某些特性（同种特性可以覆盖），
-  // 又可以添加自己的特性，而不会影响父类时候使用prototype
-
   function Parent1() {
     this.name = "parent1"
   }
@@ -127,19 +122,6 @@
   //     arr.push(v);
   //   }
   // })
-  // 去除两个数组的重复项
-  var arr1 = ['a', 'b', 'c', 'd']
-  var arr2 = ['a', 'd', 'c', 'e']
-  var arr3 = arr1.concat(arr2);
-  var obj = {};
-  var arr4 = [];
-  arr3.forEach((v, k) => {
-    obj[v] = obj[v] ? obj[v] + 1 : 1;
-  })
-  Object.keys(obj).forEach((m, n) => {
-    if (obj[m] === 1) { arr4.push(m) }
-  })
-  console.log(arr4);
 
 </script>
 

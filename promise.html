@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //promise
+    new Promise(function () {
+        console.log('支持promise')
+    })
+
+    function test(resolve, reject) {
+        let timeOut = Math.random() * 2;
+        // log('set timeout to:'+timeOut+'seconds');
+        setTimeout(function () {
+            if (timeOut < 1) {
+                console.log('call resolve()...');
+                resolve('200 ok');//res 成功时返回的结果
+            } else {
+                console.log('call reject()...');
+                reject('timeout in ' + timeOut + 'seconds.')//err 失败时返回的结果
+            }
+        }, timeOut * 1000);
+    }
+
+    // new Promise(test).then((res)=>{
+    //     console.log('成功'+res);
+    // }).catch((err)=>{
+    //     console.log('失败'+err);
+    // })
+
+    // 0.5秒后返回input*input的计算结果:
+    function multiply(input) {
+        return new Promise(function (resolve, reject) {
+            console.log('calculating ' + input + ' x ' + input + '...');
+            // 第三个函数及后面的参数传递给 resolve 函数 ( IE9 及其更早版本不支持):
+            setTimeout(resolve, 500, input * input);
+        });
+    }
+    // 0.5秒后返回input+input的计算结果:
+    function add(input) {
+        return new Promise(function (resolve, reject) {
+            console.log('calculating ' + input + ' + ' + input + '...');
+            setTimeout(resolve, 500, input + input);
+        });
+    }
+    var p = new Promise(function (resolve, reject) {
+        console.log('start new Promise...');
+        resolve(1224);
+    });
+
+    p.then((res) => { multiply(res) })
+        .then(add)
+        .then(multiply)
+        .then(add)
+        .then(function (result) {
+            console.log('Got value: ' + result);
+        });
+    Promise.all([multiply(1, 1), add(2, 2)]).then(function (res) { console.log(res) })
+    var pone = new Promise(function (resolve, reject) {
+        setTimeout(resolve, 500, 'P1');
+    });
+    var ptwo = new Promise(function (resolve, reject) {
+        setTimeout(resolve, 600, 'P2');
+    });
+    // 同时执行p1和p2，并在它们都完成后执行then:
+    Promise.all([pone, ptwo]).then(function (results) {
+        console.log(results); // 获得一个Array: ['P1', 'P2']
+    });
+    // 有些时候，多个异步任务是为了容错。比如，同时向两个URL读取用户的个人信息，只需要获得先返回的结果即可。这种情况下，用Promise.race()实现：
+    // 由于p1执行较快，Promise的then()将获得结果'P1'。p2仍在继续执行，但执行结果将被丢弃。
+    var p1 = new Promise(function (resolve, reject) {
+        setTimeout(resolve, 500, 'P1');
+    });
+    var p2 = new Promise(function (resolve, reject) {
+        setTimeout(resolve, 600, 'P2');
+    });
+    Promise.race([p1, p2]).then(function (result) {
+        console.log(result); // 'P1'
+    });
+
+
+
+</script>
+
+</html>

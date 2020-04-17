@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li><a href="#/">turn white</a></li>
+    <li><a href="#/blue">turn blue</a></li>
+    <li><a href="#/green">turn green</a></li>
+</ul>
+</body>
+<script>
+// 的确可以通过 hash 的改变来对页面进行局部刷新。尤其需要注意的是：在第一次进入页面的时候，如果 url 上已经带有 hash，那么也会触发一次 onhashchange 事件，这保证了一开始的 hash 就能被识别。
+// 问题：虽然 hash 解决了 SPA 路由控制的问题，但是它又引入了新的问题 → url 上会有一个 # 号，很不美观
+// 解决方案：抛弃 hash，使用 history
+function Router() {
+    this.routes = {};
+    this.currentUrl = '';
+}
+Router.prototype.route = function (path, callback) {
+    this.routes[path] = callback || function () {
+        };
+}; 
+Router.prototype.refresh = function () {
+    console.log('触发一次 hashchange，hash 值为', location.hash);
+    this.currentUrl = location.hash.slice(1) || '/';
+    this.routes[this.currentUrl]();
+};
+Router.prototype.init = function () {
+    window.addEventListener('load', this.refresh.bind(this), false);
+    window.addEventListener('hashchange', this.refresh.bind(this), false);
+};
+window.Router = new Router();
+window.Router.init();
+var content = document.querySelector('body');
+// change Page anything
+function changeBgColor(color) {
+    content.style.backgroundColor = color;
+}
+Router.route('/', function () {
+    changeBgColor('white');
+});
+Router.route('/blue', function () {
+    changeBgColor('blue');
+});
+Router.route('/green', function () {
+    changeBgColor('green');
+});
+</script>
+</html>

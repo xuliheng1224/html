@@ -1,25 +1,3 @@
-//JS控制文本框只能输入数字 \保留小数点后两位
-<input type="text" placeholder="保留到小数点后两位" maxlength="200" onkeyup="num(this)" onpaste="num(this)" />
-//输入和黏贴操作时触发
-
-//小数点后两位
-function num(obj) {
-	obj.value = obj.value.replace(/[^\d.]/g, ""); //清除"数字"和"."以外的字符
-	obj.value = obj.value.replace(/^\./g, ""); //验证第一个字符是数字
-	obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个, 清除多余的
-	obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
-	obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3'); //只能输入两个小数
-}
-
-//只能输入整数
-function inte(obj) {
-	if (obj.value.length == 1) {
-		obj.value = obj.value.replace(/[^1-9]/g, '')
-	} else {
-		obj.value = obj.value.replace(/\D/g, '')
-	}
-}
-
 //下载pdf/excel
 fetch({
 	url: '/crm/user/downData',

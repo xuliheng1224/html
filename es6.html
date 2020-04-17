@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>es6</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]
+    let newlist = []
+    for (let i = 0; i < 6; i++) {
+        let length = list.length
+        let i = Math.round(Math.random() * length)
+        list.splice(i - 1, 1);
+        // delete list[i - 1]
+        newlist.push(list[i])
+    }
+    newlist.push(Math.round(Math.random() * 16))
+    document.write(newlist.join(","))
+    //promise
+    new Promise(function () {
+        console.log('支持promise')
+    })
+
+    function test(resolve, reject) {
+        let timeOut = Math.random() * 2;
+        // log('set timeout to:'+timeOut+'seconds');
+        setTimeout(function () {
+            if (timeOut < 1) {
+                console.log('call resolve()...');
+                resolve('200 ok');//res 成功时返回的结果
+            } else {
+                console.log('call reject()...');
+                reject('timeout in ' + timeOut + 'seconds.')//err 失败时返回的结果
+            }
+        }, timeOut * 1000);
+    }
+
+    // new Promise(test).then((res)=>{
+    //     console.log('成功'+res);
+    // }).catch((err)=>{
+    //     console.log('失败'+err);
+    // })
+
+    // 0.5秒后返回input*input的计算结果:
+    function multiply(input) {
+        return new Promise(function (resolve, reject) {
+            console.log('calculating ' + input + ' x ' + input + '...');
+            setTimeout(resolve, 500, input * input);
+        });
+    }
+    // 0.5秒后返回input+input的计算结果:
+    function add(input) {
+        return new Promise(function (resolve, reject) {
+            console.log('calculating ' + input + ' + ' + input + '...');
+            setTimeout(resolve, 500, input + input);
+        });
+    }
+    var p = new Promise(function (resolve, reject) {
+        console.log('start new Promise...');
+        resolve(1224);
+    });
+
+    //  p.then((res) => {multiply(res)})
+    //  .then(add)
+    //  .then(multiply)
+    //  .then(add)
+    //  .then(function (result) {
+    //      console.log('Got value: ' + result);
+    //  });
+    //Promise.all([multiply(1,1),add(2,2)]).then(function(res){console.log(res)})
+
+    //传参默认值
+    function breakfast(dessert = 'apple', drink = 'milk') {
+        return `${dessert} ${drink}`
+    }
+    //console.log(breakfast())
+    var arr1 = ["dfdf", "ghgh", "err", "tyt", "ghgh"]
+    var arr2 = ["dhj", "ghbn", "ghr", "hghg", "tytyty"]
+    arr2.forEach(function (s, i) {
+        arr1.push(s)
+    })
+    console.log(arr1)
+</script>
+
+</html>
